@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorite Bookmarklets</title>
+    <style>
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"; 
+            line-height: 1.6; 
+            padding: 45px; 
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1, h2, h3 {
+            border-bottom: 1px solid #eaecef;
+            padding-bottom: .3em;
+        }
+        code { 
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            background-color: rgba(27,31,35,.05); 
+            padding: .2em .4em; 
+            margin: 0;
+            font-size: 85%;
+            border-radius: 3px; 
+        }
+        pre { 
+            background-color: #f6f8fa; 
+            padding: 16px; 
+            border-radius: 3px; 
+            overflow: auto;
+        }
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            margin: 0;
+            font-size: 100%;
+        }
+        a { 
+            color: #0366d6; 
+            text-decoration: none; 
+        }
+        a:hover { 
+            text-decoration: underline; 
+        }
+        ul {
+            padding-left: 2em;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>My Favorite Bookmarklets</h1>
+    <p>A curated collection of useful and fun bookmarklets to enhance your Browse experience.</p>
+
+    <h2>📚 What are Bookmarklets?</h2>
+    <p>Bookmarklets are small JavaScript programs stored as a URL in a browser's bookmark. When clicked, they execute the JavaScript code on the currently open web page, allowing you to perform various actions, modify content, or extract information without installing extensions.</p>
+
+    <h2>🚀 How to Use Bookmarklets</h2>
+    <ol>
+        <li><strong>Create a New Bookmark:</strong> In your browser, open your bookmarks manager or right-click on your bookmarks bar and select "Add page" or "Add bookmark."</li>
+        <li><strong>Name the Bookmark:</strong> Give it a descriptive name (e.g., "Dark Mode Toggle").</li>
+        <li><strong>Paste the Code:</strong> In the "URL" or "Address" field, paste the entire JavaScript code for the bookmarklet, ensuring it starts with <code>javascript:</code>.</li>
+        <li><strong>Save:</strong> Save the bookmark.</li>
+        <li><strong>Use It:</strong> Whenever you're on a webpage and want to use the bookmarklet, simply click on its name in your bookmarks bar or menu.</li>
+    </ol>
+
+    <h2>🔗 Table of Contents</h2>
+    <ul>
+        <li><a href="#productivity">📈 Productivity & Utilities</a></li>
+        <li><a href="#developer">👨‍💻 Developer Tools</a></li>
+        <li><a href="#fun">🎨 Fun & Customization</a></li>
+    </ul>
+
+    <h2>✨ Bookmarklet Categories</h2>
+    <p>Here, bookmarklets are organized into categories for easier navigation.</p>
+
+    <h3 id="productivity">📈 Productivity & Utilities</h3>
+    <p>Bookmarklets designed to help you be more efficient or perform common tasks.</p>
+    <ul>
+        <li><strong>Bookmarklet Name 1</strong>
+            <p><strong>Description:</strong> A brief explanation of what this bookmarklet does.</p>
+            <p><strong>Code:</strong></p>
+            <pre><code>javascript:(function(){/* Your JavaScript code here */})();</code></pre>
+        </li>
+        <li><strong>Bookmarklet Name 2</strong>
+            <p><strong>Description:</strong> Another useful bookmarklet.</p>
+            <p><strong>Code:</strong></p>
+            <pre><code>javascript:(function(){/* Your JavaScript code here */})();</code></pre>
+        </li>
+    </ul>
+
+    <h3 id="developer">👨‍💻 Developer Tools</h3>
+    <p>Bookmarklets useful for web developers, designers, or anyone inspecting web pages.</p>
+    <ul>
+        <li><strong>Bookmarklet Name 3</strong>
+            <p><strong>Description:</strong> For example, a bookmarklet to highlight all links on a page.</p>
+            <p><strong>Code:</strong></p>
+            <pre><code>javascript:(function(){/* Your JavaScript code here */})();</code></pre>
+        </li>
+        <li><strong>Bookmarklet Name 4</strong>
+            <p><strong>Description:</strong> Another developer-focused tool.</p>
+            <p><strong>Code:</strong></p>
+            <pre><code>javascript:(function(){/* Your JavaScript code here */})();</code></pre>
+        </li>
+    </ul>
+
+    <h3 id="fun">🎨 Fun & Customization</h3>
+    <p>Bookmarklets for entertainment or personalizing your Browse experience.</p>
+    <ul>
+        <li><strong>Bookmarklet Name 5</strong>
+            <p><strong>Description:</strong> Perhaps a bookmarklet that changes all images to cats.</p>
+            <p><strong>Code:</strong></p>
+            <pre><code>javascript:(function(){/* Your JavaScript code here */})();</code></pre>
+        </li>
+        <li>
+             <a href="javascript:(function(){const a=/\b(view|see|load|show)\b/i,b=/\b(reply|replies|comment|comments)\b/i,c=()=>{let c=0;return document.querySelectorAll('a, div[role=\'button\'], span[role=\'button\'], span[role=\'link\']').forEach(d=>{const e=(d.innerText||'').trim();if(a.test(e)&&b.test(e)){d.click();c++;}}),c&&console.debug(`[FB-Expander] clicked ${c}`),c},d=3e3;let e=Date.now();const f=new MutationObserver(()=>{e=Date.now()});f.observe(document,{childList:!0,subtree:!0});const g=setInterval(()=>{if(c()){e=Date.now()}if(Date.now()-e>d){clearInterval(g);f.disconnect();console.log(`[FB-Expander] ✅ Done – settled for ${d/1e3}s.`)}},400);console.log('[FB-Expander] 🚀 Started…');c()})();">FBdownloader</a>
+        </li>
+    </ul>
+
+    <h2>🤝 Contributing</h2>
+    <p>Have a favorite bookmarklet you'd like to share? Contributions are welcome!</p>
+    <ol>
+        <li>Fork this repository.</li>
+        <li>Create a new branch (<code>git checkout -b feature/your-bookmarklet</code>).</li>
+        <li>Add your bookmarklet to the appropriate category (or create a new one if necessary) in the <code>index.html</code> file.</li>
+        <li>Ensure your bookmarklet code is properly formatted within an <code>&lt;a&gt;</code> tag's <code>href</code> attribute, starting with <code>javascript:</code>.</li>
+        <li>Commit your changes (<code>git commit -m 'Add new bookmarklet: [Name]'</code>).</li>
+        <li>Push to the branch (<code>git push origin feature/your-bookmarklet</code>).</li>
+        <li>Open a Pull Request.</li>
+    </ol>
+
+    <h2>📄 License</h2>
+    <p>This project is licensed under the MIT License - see the LICENSE file for details.</p>
+
+    <h2>🙏 Acknowledgements</h2>
+    <ul>
+        <li>Inspired by various online resources and communities.</li>
+        <li>Special thanks to anyone who contributed their awesome bookmarklets!</li>
+    </ul>
+
+</body>
+</html>
