@@ -1,4 +1,4 @@
-# My Favorite Bookmarklets
+# Bookmarklets Wiki 
 
 A curated collection of useful and fun bookmarklets to enhance your Browse experience.
 
