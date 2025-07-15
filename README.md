@@ -19,6 +19,9 @@ Alternatively, you can install them manually:
 3.  **Paste the Code:** Copy the JavaScript code for the bookmarklet.
 4.  **Save:** Save the bookmark.
 
+## Available Bookmarklets so far
+### - Facebook Video downloader : works perfectly with videos,reels,comments on mobile browsers.
+
 ## 🤝 Contributing
 
 Have a favorite bookmarklet you'd like to share? Contributions are welcome! Please make edits to the `index.html` file and open a pull request.
