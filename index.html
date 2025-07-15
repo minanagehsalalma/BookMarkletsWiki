@@ -100,16 +100,30 @@
 
     <h3 id="fun">🎨 Fun & Customization</h3>
     <p>Bookmarklets for entertainment or personalizing your Browse experience.</p>
+<div style="margin-bottom: 20px;">
     <ul>
-        <li><strong>Bookmarklet Name 5</strong>
-            <p><strong>Description:</strong> Perhaps a bookmarklet that changes all images to cats.</p>
-            <p><strong>Code:</strong></p>
-            <pre><code>javascript:(function(){/* Your JavaScript code here */})();</code></pre>
-        </li>
         <li>
-             <a href="javascript:(function(){const a=/\b(view|see|load|show)\b/i,b=/\b(reply|replies|comment|comments)\b/i,c=()=>{let c=0;return document.querySelectorAll('a, div[role=\'button\'], span[role=\'button\'], span[role=\'link\']').forEach(d=>{const e=(d.innerText||'').trim();if(a.test(e)&&b.test(e)){d.click();c++;}}),c&&console.debug(`[FB-Expander] clicked ${c}`),c},d=3e3;let e=Date.now();const f=new MutationObserver(()=>{e=Date.now()});f.observe(document,{childList:!0,subtree:!0});const g=setInterval(()=>{if(c()){e=Date.now()}if(Date.now()-e>d){clearInterval(g);f.disconnect();console.log(`[FB-Expander] ✅ Done – settled for ${d/1e3}s.`)}},400);console.log('[FB-Expander] 🚀 Started…');c()})();">FBdownloader</a>
+            <strong>FB Expander/Downloader</strong>
+            <p><strong>Description:</strong> This bookmarklet expands hidden "view more comments" or "show replies" sections on Facebook.</p>
+            <p>Add this bookmarklet by:</p>
+            <ol>
+                <li>
+                    <strong>Copying the Code:</strong> Copy the full code below and paste it into a new bookmark's URL field.
+                    <pre><code>javascript:(function(){const a=/\b(view|see|load|show)\b/i,b=/\b(reply|replies|comment|comments)\b/i,c=()=>{let c=0;return document.querySelectorAll('a, div[role=\'button\'], span[role=\'button\'], span[role=\'link\']').forEach(d=>{const e=(d.innerText||'').trim();if(a.test(e)&&b.test(e)){d.click();c++;}}),c&&console.debug(`[FB-Expander] clicked ${c}`),c},d=3e3;let e=Date.now();const f=new MutationObserver(()=>{e=Date.now()});f.observe(document,{childList:!0,subtree:!0});const g=setInterval(()=>{if(c()){e=Date.now()}if(Date.now()-e>d){clearInterval(g);f.disconnect();console.log(`[FB-Expander] ✅ Done – settled for ${d/1e3}s.`)}},400);console.log('[FB-Expander] 🚀 Started…');c()})();</code></pre>
+                </li>
+            </ol>
+            <p style="text-align: center; margin: 10px 0;">
+                <strong>OR</strong>
+            </p>
+            <ol start="2"> <li>
+                    <strong>Dragging the Link:</strong> Drag the following link to your browser's bookmarks bar.
+                    <br>
+                    <a href="javascript:(function(){const a=/\b(view|see|load|show)\b/i,b=/\b(reply|replies|comment|comments)\b/i,c=()=>{let c=0;return document.querySelectorAll('a, div[role=\'button\'], span[role=\'button\'], span[role=\'link\']').forEach(d=>{const e=(d.innerText||'').trim();if(a.test(e)&&b.test(e)){d.click();c++;}}),c&&console.debug(`[FB-Expander] clicked ${c}`),c},d=3e3;let e=Date.now();const f=new MutationObserver(()=>{e=Date.now()});f.observe(document,{childList:!0,subtree:!0});const g=setInterval(()=>{if(c()){e=Date.now()}if(Date.now()-e>d){clearInterval(g);f.disconnect();console.log(`[FB-Expander] ✅ Done – settled for ${d/1e3}s.`)}},400);console.log('[FB-Expander] 🚀 Started…');c()})();">FBCommentsExpander</a>
+                </li>
+            </ol>
         </li>
     </ul>
+</div>
 
     <h2>🤝 Contributing</h2>
     <p>Have a favorite bookmarklet you'd like to share? Contributions are welcome!</p>
