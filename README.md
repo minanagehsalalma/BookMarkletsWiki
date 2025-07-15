@@ -21,6 +21,7 @@ Alternatively, you can install them manually:
 
 ## Available Bookmarklets so far
 ### - Facebook Video downloader : works perfectly with videos,reels,comments on mobile browsers.
+### - Facebook Comments Expander : Expands all comments on any facebook post good for searching in comments (ctrl + f) or archiving a page works on desktop.
 
 ## 🤝 Contributing
 
