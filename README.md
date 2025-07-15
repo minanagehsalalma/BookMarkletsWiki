@@ -31,6 +31,11 @@ Alternatively, you can install them manually:
 - **Features**: Expands all comments on any Facebook post
 - **Use Cases**: Great for searching in comments (Ctrl + F) or archiving a page
 
+### Neat Local Storage Exporter  
+- **Platform**: Works on desktop browsers
+- **Features**: Exports/Imports local storage of a selected domain without the need of manual copying each key.
+- **Use Cases**: Good for debugging apps with local storage use.
+
 ## 🤝 Contributing
 
 Have a favorite bookmarklet you'd like to share? Contributions are welcome! Please make edits to the `index.html` file and open a pull request.
