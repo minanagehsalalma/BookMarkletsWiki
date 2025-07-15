@@ -50,6 +50,41 @@
             margin-bottom: 0.5em;
         }
     </style>
+<style>
+    /* Styles for the code blocks */
+    .bookmarklet-code-block {
+        background-color: #f0f2f5; /* Light grey background, similar to Facebook's muted areas */
+        padding: 10px 15px;
+        border-radius: 5px;
+        overflow-x: auto; /* Allows horizontal scroll if content is too wide */
+        white-space: pre-wrap; /* Wraps long lines of code */
+        word-wrap: break-word; /* Breaks long words if necessary */
+        border: 1px solid #ddd; /* Subtle border, similar to image 1 */
+        font-family: monospace; /* Ensures monospaced font for code */
+        font-size: 0.9em; /* Slightly smaller font size for compactness */
+        line-height: 1.4; /* Better line spacing */
+        color: #333; /* Darker text for readability */
+        margin-top: 10px; /* Space above the code block */
+    }
+
+    /* Style for the "OR" separator */
+    .bookmarklet-or {
+        text-align: center;
+        margin: 15px 0; /* More vertical space for separation */
+        font-weight: bold;
+    }
+
+    /* Target the ul directly inside the div.bookmarklet-section-item to remove top margin */
+    .bookmarklet-section-item > ul {
+        margin-top: 0;
+        padding-top: 0; /* Also remove padding top if it exists */
+    }
+
+    /* General styling for overall section spacing, adjust as needed */
+    .bookmarklet-section-item {
+        margin-bottom: 25px; /* Adds space after each full bookmarklet section */
+    }
+</style>
 </head>
 <body>
 
@@ -84,13 +119,110 @@
 
     <h3 id="productivity">📈 Productivity & Utilities</h3>
     <p>Bookmarklets designed to help you be more efficient or perform common tasks.</p>
+
+<div class="bookmarklet-section-item">
     <ul>
-        <li><strong>Bookmarklet Name 1</strong>
-            <p><strong>Description:</strong> A brief explanation of what this bookmarklet does.</p>
-            <p><strong>Code:</strong></p>
-            <pre><code>javascript:(function(){/* Your JavaScript code here */})();</code></pre>
+        <li>
+            <strong>Facebook Video Downloader</strong>
+            <p><strong>Description:</strong> This bookmarklet helps you download videos from Facebook by presenting available video URLs in different qualities.</p>
+            <p>Add this bookmarklet by:</p>
+            <ol>
+                <li>
+                    <strong>Copying the Code:</strong> Copy the full code below and paste it into a new bookmark's URL field.
+                    <pre class="bookmarklet-code-block"><code>javascript:void%20function(){javascript:(async()=%3E{const%20a=(a,b=document)=%3E[...b.querySelectorAll(a)],b=(a,b,c)=%3E{!a||a.startsWith(%22blob:%22)||c.has(a)||c.set(a,{u:a,...b})},c=a=%3EisFinite(a)%3Fnew%20Date(1e3*a).toISOString().substr(11,8):%22%20%3F%22,d=a=%3Ea%3F(a/1048576).toFixed(2)+%22%20MB%22:%22%20%3F%22;{const%20a=location.href.match(/[%3F%26]v=(\d{5,})/);a%26%26/facebook\.com\/watch/.test(location.href)%26%26history.replaceState(null,%22%22,`https://www.facebook.com/story.php%3Fstory_fbid=${a[1]}%26id=${a[1]}`)}const%20e=[...new%20Map([...(()=%3E{const%20c=new%20Map;return%20a(%22video%22).forEach(d=%3E{const%20e={w:d.videoWidth,h:d.videoHeight,d:d.duration};b(d.currentSrc||d.src,e,c),a(%22source%22,d).forEach(a=%3Eb(a.src,e,c))}),a(%22meta[property=\%22og:video\%22],%20meta[property=\%22og:video:secure_url\%22]%22).forEach(a=%3Eb(a.content,{},c)),a(%22[data-store]%22).forEach(a=%3E{let%20d=a.getAttribute(%22data-store%22);if(d)try{d=JSON.parse(d.replace(/%26quot;/g,%22\%22%22).replace(/%26amp;/g,%22%26%22)),[%22src%22,%22hd_src%22,%22sd_src%22].forEach(a=%3Eb(d[a],{},c))}catch{}}),[...c.values()]})(),...(()=%3E{const%20b=new%20Set,c=/%22(%3F:playable_url_quality_hd|playable_url|hd_src(%3F:_no_ratelimit)%3F|sd_src(%3F:_no_ratelimit)%3F)%22\s*:\s*%22([^%22]+%3F\.mp4[^%22]*%3F)%22/g;return%20a(%22script%22).forEach(a=%3E{for(let%20d;d=c.exec(a.textContent);)b.add(d[1].replace(/\\\//g,%22/%22).replace(/\\u0025/gi,%22%25%22).replace(/\\u0026/gi,%22%26%22))}),[...b].map(a=%3E({u:a}))})()].map(a=%3E[a.u,a])).values()];if(!e.length)return%20void%20alert(%22No%20video%20found.\n\u2022%20Click%20the%20play%20button%20once,%20then%20run%20the%20bookmarklet%20again.%22);await%20Promise.all(e.map(async%20a=%3E{try{a.sz=+(await%20fetch(a.u,{method:%22HEAD%22})).headers.get(%22content-length%22)||0}catch{a.sz=0}}));const%20f=document.createElement(%22div%22);f.id=%22fbDLgui%22,f.innerHTML=`
+%20%20%3Cstyle%3E
+%20%20%20%20%23fbDLgui{position:fixed;inset:0;z-index:2147483647;background:%230004;backdrop-filter:blur(2px);}
+%20%20%20%20%23fbDLbox{position:absolute;top:8vh;left:50%25;transform:translateX(-50%25);
+%20%20%20%20%20%20%20%20%20%20%20%20%20width:80%25;max-width:700px;height:80vh;background:%23fff;border-radius:10px;
+%20%20%20%20%20%20%20%20%20%20%20%20%20box-shadow:0%206px%2024px%20%230003;display:flex;flex-direction:column;font:14px/1.4%20sans-serif;}
+%20%20%20%20%23fbDLhdr{display:flex;align-items:center;justify-content:space-between;padding:10px%2016px;
+%20%20%20%20%20%20%20%20%20%20%20%20%20background:%234267B2;color:%23fff;border-radius:10px%2010px%200%200;}
+%20%20%20%20%23fbDLhdr%20h2{margin:0;font-size:15px;font-weight:600;}
+%20%20%20%20%23fbDLclose{border:none;background:none;color:%23fff;font-size:22px;cursor:pointer;}
+%20%20%20%20%23fbDLtbl{flex:1%201%20auto;margin:0%2016px%2016px;overflow:auto;border:1px%20solid%20%23ddd;}
+%20%20%20%20%23fbDLtbl%20table{border-collapse:collapse;width:100%25;}
+%20%20%20%20%23fbDLtbl%20th,%23fbDLtbl%20td{padding:6px%208px;text-align:left;border-bottom:1px%20solid%20%23eee;font-size:13px;}
+%20%20%20%20%23fbDLtbl%20th{background:%23f5f6fa;position:sticky;top:0;}
+%20%20%20%20%23fbDLtbl%20tr:hover{background:%23fafbff;}
+%20%20%3C/style%3E
+%20%20%3Cdiv%20id=%22fbDLbox%22%3E
+%20%20%20%20%3Cdiv%20id=%22fbDLhdr%22%3E%3Ch2%3EFacebook%26nbsp;Video%26nbsp;Downloader%3C/h2%3E%3Cbutton%20id=%22fbDLclose%22%3E×%3C/button%3E%3C/div%3E
+%20%20%20%20%3Cdiv%20id=%22fbDLtbl%22%3E%3Ctable%3E
+%20%20%20%20%20%20%3Cthead%3E%3Ctr%3E%3Cth%3EFile%3C/th%3E%3Cth%3EResolution%3C/th%3E%3Cth%3EDuration%3C/th%3E%3Cth%3ESize%3C/th%3E%3C/tr%3E%3C/thead%3E
+%20%20%20%20%20%20%3Ctbody%3E%3C/tbody%3E
+%20%20%20%20%3C/table%3E%3C/div%3E
+%20%20%3C/div%3E`,document.body.appendChild(f);const%20g=f.querySelector(%22tbody%22),h=a=%3E40%3Ca.length%3F`${a.slice(0,18)}…${a.slice(-18)}`:a;e.forEach(a=%3E{const%20b=h(decodeURIComponent(a.u.split(%22/%22).pop().split(%22%3F%22)[0])||%22(unnamed)%22),e=a.w%3F`${a.w}×${a.h}`:%22%20%3F%22,f=document.createElement(%22tr%22);f.innerHTML=`%3Ctd%3E%3Ca%20href=%22${a.u}%22%20target=%22_blank%22%20download%3E${b}%3C/a%3E%3C/td%3E
+%20%20%20%20%20%20%20%3Ctd%3E${e}%3C/td%3E
+%20%20%20%20%20%20%20%3Ctd%3E${c(a.d)}%3C/td%3E
+%20%20%20%20%20%20%20%3Ctd%3E${d(a.sz)}%3C/td%3E`,g.appendChild(f)}),f.querySelector(%22%23fbDLclose%22).onclick=()=%3Ef.remove()})()}();</code></pre>
+                </li>
+            </ol>
+            <p class="bookmarklet-or">
+                <strong>OR</strong>
+            </p>
+            <ol start="2">
+                <li>
+                    <strong>Dragging the Link:</strong> Drag the following link to your browser's bookmarks bar.
+                    <br>
+                    <a href="javascript:void%20function(){javascript:(async()=%3E{const%20a=(a,b=document)=%3E[...b.querySelectorAll(a)],b=(a,b,c)=%3E{!a||a.startsWith(%22blob:%22)||c.has(a)||c.set(a,{u:a,...b})},c=a=%3EisFinite(a)%3Fnew%20Date(1e3*a).toISOString().substr(11,8):%22%20%3F%22,d=a=%3Ea%3F(a/1048576).toFixed(2)+%22%20MB%22:%22%20%3F%22;{const%20a=location.href.match(/[%3F%26]v=(\d{5,})/);a%26%26/facebook\.com\/watch/.test(location.href)%26%26history.replaceState(null,%22%22,`https://www.facebook.com/story.php%3Fstory_fbid=${a[1]}%26id=${a[1]}`)}const%20e=[...new%20Map([...(()=%3E{const%20c=new%20Map;return%20a(%22video%22).forEach(d=%3E{const%20e={w:d.videoWidth,h:d.videoHeight,d:d.duration};b(d.currentSrc||d.src,e,c),a(%22source%22,d).forEach(a=%3Eb(a.src,e,c))}),a(%22meta[property=\%22og:video\%22],%20meta[property=\%22og:video:secure_url\%22]%22).forEach(a=%3Eb(a.content,{},c)),a(%22[data-store]%22).forEach(a=%3E{let%20d=a.getAttribute(%22data-store%22);if(d)try{d=JSON.parse(d.replace(/%26quot;/g,%22\%22%22).replace(/%26amp;/g,%22%26%22)),[%22src%22,%22hd_src%22,%22sd_src%22].forEach(a=%3Eb(d[a],{},c))}catch{}}),[...c.values()]})(),...(()=%3E{const%20b=new%20Set,c=/%22(%3F:playable_url_quality_hd|playable_url|hd_src(%3F:_no_ratelimit)%3F|sd_src(%3F:_no_ratelimit)%3F)%22\s*:\s*%22([^%22]+%3F\.mp4[^%22]*%3F)%22/g;return%20a(%22script%22).forEach(a=%3E{for(let%20d;d=c.exec(a.textContent);)b.add(d[1].replace(/\\\//g,%22/%22).replace(/\\u0025/gi,%22%25%22).replace(/\\u0026/gi,%22%26%22))}),[...b].map(a=%3E({u:a}))})()].map(a=%3E[a.u,a])).values()];if(!e.length)return%20void%20alert(%22No%20video%20found.\n\u2022%20Click%20the%20play%20button%20once,%20then%20run%20the%20bookmarklet%20again.%22);await%20Promise.all(e.map(async%20a=%3E{try{a.sz=+(await%20fetch(a.u,{method:%22HEAD%22})).headers.get(%22content-length%22)||0}catch{a.sz=0}}));const%20f=document.createElement(%22div%22);f.id=%22fbDLgui%22,f.innerHTML=`
+%20%20%3Cstyle%3E
+%20%20%20%20%23fbDLgui{position:fixed;inset:0;z-index:2147483647;background:%230004;backdrop-filter:blur(2px);}
+%20%20%20%20%23fbDLbox{position:absolute;top:8vh;left:50%25;transform:translateX(-50%25);
+%20%20%20%20%20%20%20%20%20%20%20%20%20width:80%25;max-width:700px;height:80vh;background:%23fff;border-radius:10px;
+%20%20%20%20%20%20%20%20%20%20%20%20%20box-shadow:0%206px%2024px%20%230003;display:flex;flex-direction:column;font:14px/1.4%20sans-serif;}
+%20%20%20%20%23fbDLhdr{display:flex;align-items:center;justify-content:space-between;padding:10px%2016px;
+%20%20%20%20%20%20%20%20%20%20%20%20%20background:%234267B2;color:%23fff;border-radius:10px%2010px%200%200;}
+%20%20%20%20%23fbDLhdr%20h2{margin:0;font-size:15px;font-weight:600;}
+%20%20%20%20%23fbDLclose{border:none;background:none;color:%23fff;font-size:22px;cursor:pointer;}
+%20%20%20%20%23fbDLtbl{flex:1%201%20auto;margin:0%2016px%2016px;overflow:auto;border:1px%20solid%20%23ddd;}
+%20%20%20%20%23fbDLtbl%20table{border-collapse:collapse;width:100%25;}
+%20%20%20%20%23fbDLtbl%20th,%23fbDLtbl%20td{padding:6px%208px;text-align:left;border-bottom:1px%20solid%20%23eee;font-size:13px;}
+%20%20%20%20%23fbDLtbl%20th{background:%23f5f6fa;position:sticky;top:0;}
+%20%20%20%20%23fbDLtbl%20tr:hover{background:%23fafbff;}
+%20%20%3C/style%3E
+%20%20%3Cdiv%20id=%22fbDLbox%22%3E
+%20%20%20%20%3Cdiv%20id=%22fbDLhdr%22%3E%3Ch2%3EFacebook%26nbsp;Video%26nbsp;Downloader%3C/h2%3E%3Cbutton%20id=%22fbDLclose%22%3E×%3C/button%3E%3C/div%3E
+%20%20%20%20%3Cdiv%20id=%22fbDLtbl%22%3E%3Ctable%3E
+%20%20%20%20%20%20%3Cthead%3E%3Ctr%3E%3Cth%3EFile%3C/th%3E%3Cth%3EResolution%3C/th%3E%3Cth%3EDuration%3C/th%3E%3Cth%3ESize%3C/th%3E%3C/tr%3E%3C/thead%3E
+%20%20%20%20%20%20%3Ctbody%3E%3C/tbody%3E
+%20%20%20%20%3C/table%3E
+%20%20%3C/div%3E
+%20%20%3C/div%3E`,document.body.appendChild(f);const%20g=f.querySelector(%22tbody%22),h=a=%3E40%3Ca.length%3F`${a.slice(0,18)}…${a.slice(-18)}`:a;e.forEach(a=%3E{const%20b=h(decodeURIComponent(a.u.split(%22/%22).pop().split(%22%3F%22)[0])||%22(unnamed)%22),e=a.w%3F`${a.w}×${a.h}`:%22%20%3F%22,f=document.createElement(%22tr%22);f.innerHTML=`%3Ctd%3E%3Ca%20href=%22${a.u}%22%20target=%22_blank%22%20download%3E${b}%3C/a%3E%3C/td%3E
+%20%20%20%20%20%20%20%3Ctd%3E${e}%3C/td%3E
+%20%20%20%20%20%20%20%3Ctd%3E${c(a.d)}%3C/td%3E
+%20%20%20%20%20%20%20%3Ctd%3E${d(a.sz)}%3C/td%3E`,g.appendChild(f)}),f.querySelector(%22%23fbDLclose%22).onclick=()=%3Ef.remove()})()}();">Facebook Video Downloader</a>
+                </li>
+            </ol>
+        </li>
+    </ul>
+</div>
+
+
+<div class="bookmarklet-section-item">
+    <ul>
+        <li>
+            <strong>FB Comments Expander</strong>
+            <p><strong>Description:</strong> This bookmarklet expands hidden "view more comments" or "show replies" sections on Facebook.</p>
+            <p>Add this bookmarklet by:</p>
+            <ol>
+                <li>
+                    <strong>Copying the Code:</strong> Copy the full code below and paste it into a new bookmark's URL field.
+                    <pre class="bookmarklet-code-block"><code>javascript:(function(){const a=/\b(view|see|load|show)\b/i,b=/\b(reply|replies|comment|comments)\b/i,c=()=>{let c=0;return document.querySelectorAll('a, div[role=\'button\'], span[role=\'button\'], span[role=\'link\']').forEach(d=>{const e=(d.innerText||'').trim();if(a.test(e)&&b.test(e)){d.click();c++;}}),c&&console.debug(`[FB-Expander] clicked ${c}`),c},d=3e3;let e=Date.now();const f=new MutationObserver(()=>{e=Date.now()});f.observe(document,{childList:!0,subtree:!0});const g=setInterval(()=>{if(c()){e=Date.now()}if(Date.now()-e>d){clearInterval(g);f.disconnect();console.log(`[FB-Expander] ✅ Done – settled for ${d/1e3}s.`)}},400);console.log('[FB-Expander] 🚀 Started…');c()})();</code></pre>
+                </li>
+            </ol>
+            <p class="bookmarklet-or">
+                <strong>OR</strong>
+            </p>
+            <ol start="2">
+                <li>
+                    <strong>Dragging the Link:</strong> Drag the following link to your browser's bookmarks bar.
+                    <br>
+                    <a href="javascript:(function(){const a=/\b(view|see|load|show)\b/i,b=/\b(reply|replies|comment|comments)\b/i,c=()=>{let c=0;return document.querySelectorAll('a, div[role=\'button\'], span[role=\'button\'], span[role=\'link\']').forEach(d=>{const e=(d.innerText||'').trim();if(a.test(e)&&b.test(e)){d.click();c++;}}),c&&console.debug(`[FB-Expander] clicked ${c}`),c},d=3e3;let e=Date.now();const f=new MutationObserver(()=>{e=Date.now()});f.observe(document,{childList:!0,subtree:!0});const g=setInterval(()=>{if(c()){e=Date.now()}if(Date.now()-e>d){clearInterval(g);f.disconnect();console.log(`[FB-Expander] ✅ Done – settled for ${d/1e3}s.`)}},400);console.log('[FB-Expander] 🚀 Started…');c()})();">FB Comments Expander</a>
+                </li>
+            </ol>
         </li>
     </ul>
+</div>
 
     <h3 id="developer">👨‍💻 Developer Tools</h3>
     <p>Bookmarklets useful for web developers, designers, or anyone inspecting web pages.</p>
@@ -104,30 +236,13 @@
 
     <h3 id="fun">🎨 Fun & Customization</h3>
     <p>Bookmarklets for entertainment or personalizing your Browse experience.</p>
-<div style="margin-bottom: 20px;">
     <ul>
-        <li>
-            <strong>FB Expander/Downloader</strong>
-            <p><strong>Description:</strong> This bookmarklet expands hidden "view more comments" or "show replies" sections on Facebook.</p>
-            <p>Add this bookmarklet by:</p>
-            <ol>
-                <li>
-                    <strong>Copying the Code:</strong> Copy the full code below and paste it into a new bookmark's URL field.
-                    <pre><code>javascript:(function(){const a=/\b(view|see|load|show)\b/i,b=/\b(reply|replies|comment|comments)\b/i,c=()=>{let c=0;return document.querySelectorAll('a, div[role=\'button\'], span[role=\'button\'], span[role=\'link\']').forEach(d=>{const e=(d.innerText||'').trim();if(a.test(e)&&b.test(e)){d.click();c++;}}),c&&console.debug(`[FB-Expander] clicked ${c}`),c},d=3e3;let e=Date.now();const f=new MutationObserver(()=>{e=Date.now()});f.observe(document,{childList:!0,subtree:!0});const g=setInterval(()=>{if(c()){e=Date.now()}if(Date.now()-e>d){clearInterval(g);f.disconnect();console.log(`[FB-Expander] ✅ Done – settled for ${d/1e3}s.`)}},400);console.log('[FB-Expander] 🚀 Started…');c()})();</code></pre>
-                </li>
-            </ol>
-            <p style="text-align: center; margin: 10px 0;">
-                <strong>OR</strong>
-            </p>
-            <ol start="2"> <li>
-                    <strong>Dragging the Link:</strong> Drag the following link to your browser's bookmarks bar.
-                    <br>
-                    <a href="javascript:(function(){const a=/\b(view|see|load|show)\b/i,b=/\b(reply|replies|comment|comments)\b/i,c=()=>{let c=0;return document.querySelectorAll('a, div[role=\'button\'], span[role=\'button\'], span[role=\'link\']').forEach(d=>{const e=(d.innerText||'').trim();if(a.test(e)&&b.test(e)){d.click();c++;}}),c&&console.debug(`[FB-Expander] clicked ${c}`),c},d=3e3;let e=Date.now();const f=new MutationObserver(()=>{e=Date.now()});f.observe(document,{childList:!0,subtree:!0});const g=setInterval(()=>{if(c()){e=Date.now()}if(Date.now()-e>d){clearInterval(g);f.disconnect();console.log(`[FB-Expander] ✅ Done – settled for ${d/1e3}s.`)}},400);console.log('[FB-Expander] 🚀 Started…');c()})();">FBCommentsExpander</a>
-                </li>
-            </ol>
+        <li><strong>Bookmarklet Name 4</strong>
+            <p><strong>Description:</strong> For example, a bookmarklet to highlight all links on a page.</p>
+            <p><strong>Code:</strong></p>
+            <pre><code>javascript:(function(){/* Your JavaScript code here */})();</code></pre>
         </li>
     </ul>
-</div>
 
     <h2>🤝 Contributing</h2>
     <p>Have a favorite bookmarklet you'd like to share? Contributions are welcome!</p>
