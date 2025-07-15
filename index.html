@@ -261,9 +261,43 @@
         <p>Bookmarklets useful for web developers, designers, and anyone inspecting web pages.</p>
 
         <div class="bookmarklet-item">
-            <div class="bookmarklet-title">Coming Soon</div>
+            <div class="bookmarklet-title">Neat Local Storage Exporter</div>
             <div class="bookmarklet-description">
-                Developer tools bookmarklets will be added here. Consider contributing your favorites!
+Exports local storage of a selected domain without the need of manual copying each key. Supports Importing the exported keys too.
+            </div>
+            <img src="https://raw.githubusercontent.com/minanagehsalalma/Neat-Local-Storage-Exporter/refs/heads/main/55.png" alt="Facebook Video Downloader Screenshot" class="showcase-image">
+            <div class="bookmarklet-actions">
+                <a href="javascript:void%20function(){const%20a=document.createElement(%22div%22);a.style.cssText=`
+%20%20position:%20fixed;%20top:%2020px;%20right:%2020px;%20z-index:%2099999;
+%20%20background:%20%231a1a1a;%20color:%20%23fff;%20padding:%2020px;%20border-radius:%2010px;
+%20%20font-family:%20monospace;%20font-size:%2014px;%20box-shadow:%200%2010px%2030px%20rgba(0,0,0,0.5);
+%20%20max-width:%20500px;%20max-height:%2080vh;%20overflow-y:%20auto;
+`;const%20b=document.createElement(%22h3%22);b.textContent=%22Cross-Domain%20localStorage%20Manager%22,b.style.cssText=%22margin:%200%200%2015px%200;%20color:%20%234fc3f7;%22,a.appendChild(b);const%20c=document.createElement(%22div%22);c.style.cssText=%22background:%20%232a2a2a;%20padding:%2010px;%20border-radius:%205px;%20margin-bottom:%2015px;%22,c.innerHTML=`
+%20%20%3Cstrong%3ECurrent%20Domain:%3C/strong%3E%3Cbr%3E
+%20%20%3Cspan%20style=%22color:%20%234caf50;%22%3E${window.location.origin}%3C/span%3E%3Cbr%3E
+%20%20%3Csmall%3EKeys%20found:%20${localStorage.length}%3C/small%3E
+`,a.appendChild(c);const%20d=document.createElement(%22button%22);d.textContent=`Export%20All%20from%20${window.location.hostname}`,d.style.cssText=`
+%20%20width:%20100%25;%20background:%20%234caf50;%20color:%20white;%20border:%20none;%20padding:%2012px;
+%20%20border-radius:%205px;%20cursor:%20pointer;%20margin-bottom:%2015px;%20font-weight:%20bold;
+`,d.addEventListener(%22click%22,()=%3E{const%20a={};for(let%20b=0;b%3ClocalStorage.length;b++){const%20c=localStorage.key(b);a[c]=localStorage.getItem(c)}const%20b=JSON.stringify(a,null,2);navigator.clipboard.writeText(b).then(()=%3E{d.textContent=%22\u2713%20Copied%20to%20Clipboard!%22,setTimeout(()=%3E{d.textContent=`Export%20All%20from%20${window.location.hostname}`},2e3)}),console.log(%22Exported%20localStorage:%22,b)}),a.appendChild(d);const%20e=document.createElement(%22div%22);e.style.cssText=%22border-top:%201px%20solid%20%23333;%20padding-top:%2015px;%22;const%20f=document.createElement(%22h4%22);f.textContent=%22Import%20Data%22,f.style.cssText=%22margin:%200%200%2010px%200;%20color:%20%23ff9800;%22,e.appendChild(f);const%20g=document.createElement(%22textarea%22);g.placeholder=%22Paste%20exported%20JSON%20data%20here...%22,g.style.cssText=`
+%20%20width:%20100%25;%20height:%20100px;%20background:%20%23333;%20color:%20%23fff;%20border:%201px%20solid%20%23555;
+%20%20border-radius:%205px;%20padding:%2010px;%20font-family:%20monospace;%20font-size:%2012px;
+%20%20resize:%20vertical;%20margin-bottom:%2010px;
+`,e.appendChild(g);const%20h=document.createElement(%22button%22);h.textContent=%22Import%20Data%20to%20This%20Domain%22,h.style.cssText=`
+%20%20width:%20100%25;%20background:%20%232196f3;%20color:%20white;%20border:%20none;%20padding:%2010px;
+%20%20border-radius:%205px;%20cursor:%20pointer;%20font-weight:%20bold;
+`,h.addEventListener(%22click%22,()=%3E{try{const%20a=JSON.parse(g.value);let%20b=0;Object.keys(a).forEach(c=%3E{localStorage.setItem(c,a[c]),b++}),h.textContent=`✓%20Imported%20${b}%20keys!`,h.style.background=%22%234caf50%22,setTimeout(()=%3E{h.textContent=%22Import%20Data%20to%20This%20Domain%22,h.style.background=%22%232196f3%22},3e3),console.log(`Imported%20${b}%20localStorage%20keys:`,Object.keys(a))}catch(a){h.textContent=%22\u2717%20Invalid%20JSON%20data%22,h.style.background=%22%23f44336%22,setTimeout(()=%3E{h.textContent=%22Import%20Data%20to%20This%20Domain%22,h.style.background=%22%232196f3%22},3e3)}}),e.appendChild(h),a.appendChild(e);const%20i=document.createElement(%22button%22);i.textContent=%22Clear%20All%20localStorage%20(Danger!)%22,i.style.cssText=`
+%20%20width:%20100%25;%20background:%20%23f44336;%20color:%20white;%20border:%20none;%20padding:%208px;
+%20%20border-radius:%205px;%20cursor:%20pointer;%20margin-top:%2010px;%20font-size:%2012px;
+`,i.addEventListener(%22click%22,()=%3E{confirm(%22Are%20you%20sure%3F%20This%20will%20delete%20ALL%20localStorage%20data%20on%20this%20domain!%22)%26%26(localStorage.clear(),i.textContent=%22\u2713%20Cleared!%22,setTimeout(()=%3E{i.textContent=%22Clear%20All%20localStorage%20(Danger!)%22},2e3))}),a.appendChild(i);const%20j=document.createElement(%22button%22);j.textContent=%22\xD7%22,j.style.cssText=`
+%20%20position:%20absolute;%20top:%2010px;%20right:%2015px;%20background:%20none;%20border:%20none;
+%20%20color:%20%23fff;%20font-size:%2024px;%20cursor:%20pointer;%20width:%2030px;%20height:%2030px;
+`,j.addEventListener(%22click%22,()=%3E{document.body.removeChild(a)}),a.appendChild(j),document.body.appendChild(a)}();" class="bookmarklet-link">Facebook Comments Expander</a>
+                <a href="https://github.com/minanagehsalalma/Neat-Local-Storage-Exporter/blob/main/copy_localstorage.js" target="_blank" class="view-code-link">📝 View Code on GitHub</a>
+            </div>
+            <div class="warning">
+                <strong>Tip:</strong> To select another local storage within the same domain you select it from the browser's focus.
+            <img src="https://raw.githubusercontent.com/minanagehsalalma/Neat-Local-Storage-Exporter/refs/heads/main/image.png" alt="Facebook Video Downloader Screenshot" class="showcase-image">
             </div>
         </div>
 
