@@ -1,1 +1,1 @@
-javascript:(function(){location.href='https://freedium.cfd/?url='+encodeURIComponent(location.href);})();
+javascript:(function(){location.href='https://freedium.cfd/'+encodeURIComponent(location.href);})();
