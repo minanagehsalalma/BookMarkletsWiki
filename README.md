@@ -26,6 +26,10 @@ Alternatively, you can install them manually:
 - **Features**: Download Facebook videos in different qualities with file size and resolution info
 - **Usage**: Click the play button on the video first, then run the bookmarklet
 
+### Custom Youtube Video Player + Downloader by @[snarly](https://snarly.github.io/yt6/)  
+- **Platform**: Works on mobile and desktop browsers
+- **Features**: Allows full control of YT vids and downloading them and a lot more.
+
 ### Facebook Comments Expander  
 - **Platform**: Works on desktop browsers
 - **Features**: Expands all comments on any Facebook post
@@ -35,6 +39,15 @@ Alternatively, you can install them manually:
 - **Platform**: Works on desktop browsers
 - **Features**: Exports/Imports local storage of a selected domain without the need of manual copying each key.
 - **Use Cases**: Good for debugging apps with local storage use.
+
+### PayWall Remover  
+- **Platform**: Works on mobile and desktop browsers
+- **Features**: Removes any PayWall from websites using multiple sources from removepaywall.com
+
+### Medium PayWall Remover  
+- **Platform**: Works on mobile and desktop browsers
+- **Features**: Bypasses Members only medium articles by using freedium.cfd.
+
 
 ## 🤝 Contributing
 
