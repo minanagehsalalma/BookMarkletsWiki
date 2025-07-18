@@ -1,10 +1,8 @@
 # 📚 Bookmarklets Wiki
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-➡️-blue)](https://minanagehsalalma.github.io/BookMarkletsWiki/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A curated collection of useful and fun bookmarklets to enhance your Browse experience.
-
-[![Live Demo](https://img.shields.io/badge/Live_Demo-➡️-blue)](https://minanagehsalalma.github.io/BookMarkletsWiki/)
 
 ## 📖 Table of Contents
 
