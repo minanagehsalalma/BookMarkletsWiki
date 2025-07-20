@@ -4,305 +4,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bookmarklets Wiki</title>
-    <style>
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
-            line-height: 1.6; 
-            padding: 2rem; 
-            max-width: 900px;
-            margin: 0 auto;
-            background: #fafafa;
-        }
-        
-        .container {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        h1, h2, h3 {
-            color: #333;
-            border-bottom: 2px solid #e1e4e8;
-            padding-bottom: 0.5rem;
-        }
-        
-        h1 { color: #0366d6; }
-        h2 { margin-top: 2rem; }
-        h3 { margin-top: 1.5rem; }
-        
-        .bookmarklet-item {
-            background: #f8f9fa;
-            border: 1px solid #e1e4e8;
-            border-radius: 6px;
-            padding: 1.5rem;
-            margin: 1rem 0;
-        }
-        
-        .bookmarklet-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #0366d6;
-            margin-bottom: 0.5rem;
-        }
-        
-        .bookmarklet-description {
-            color: #586069;
-            margin-bottom: 1rem;
-        }
-        
-        .bookmarklet-actions {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-        
-        .bookmarklet-link {
-            display: inline-block;
-            background: #0366d6;
-            color: white;
-            padding: 0.5rem 1rem;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 500;
-            transition: background 0.2s;
-        }
-        
-        .bookmarklet-link:hover {
-            background: #0256cc;
-            color: white;
-        }
-        
-        .view-code-link {
-            display: inline-block;
-            background: #28a745;
-            color: white;
-            padding: 0.5rem 1rem;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 500;
-            transition: background 0.2s;
-        }
-        
-        .view-code-link:hover {
-            background: #218838;
-            color: white;
-        }
-        
-        .showcase-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            margin: 1rem 0;
-        }
-        
-        .install-instructions {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 4px;
-            padding: 1rem;
-            margin: 1rem 0;
-        }
-        
-        .install-instructions h4 {
-            margin-top: 0;
-            color: #856404;
-        }
-        
-        .install-instructions ol {
-            margin: 0.5rem 0;
-            padding-left: 1.5rem;
-        }
-        
-        .install-instructions li {
-            margin: 0.5rem 0;
-        }
-        
-        code {
-            background: #f6f8fa;
-            padding: 0.2rem 0.4rem;
-            border-radius: 3px;
-            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-            font-size: 0.9rem;
-        }
-        
-        .toc {
-            background: #f1f8ff;
-            border: 1px solid #c8e1ff;
-            border-radius: 6px;
-            padding: 1rem;
-            margin: 1rem 0;
-        }
-        
-        .toc ul {
-            margin: 0;
-            padding-left: 1.5rem;
-        }
-        
-        .toc a {
-            text-decoration: none;
-            color: #0366d6;
-        }
-        
-        .toc a:hover {
-            text-decoration: underline;
-        }
-        
-        .category-icon {
-            font-size: 1.2rem;
-            margin-right: 0.5rem;
-        }
-        
-        .warning {
-            background: #fff5f5;
-            border: 1px solid #fed7d7;
-            border-radius: 4px;
-            padding: 1rem;
-            margin: 1rem 0;
-            color: #742a2a;
-        }
-        
-        .mobile-note {
-            background: #e6f3ff;
-            border: 1px solid #b3d9ff;
-            border-radius: 4px;
-            padding: 1rem;
-            margin: 1rem 0;
-            color: #0066cc;
-        }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="container">
-        <h1>📚 Bookmarklets Wiki</h1>
-        <p>A curated collection of useful bookmarklets to enhance your browsing experience.</p>
+<body class="bg-gray-50 font-sans leading-normal p-8">
+    <div class="container bg-white p-8 rounded-lg shadow-md max-w-4xl mx-auto">
+        <h1 class="text-4xl font-bold text-blue-600 border-b-2 border-gray-200 pb-2">📚 Bookmarklets Wiki</h1>
+        <p class="mt-4 text-gray-600">A curated collection of useful bookmarklets to enhance your browsing experience.</p>
 
-        <h2>📚 What are Bookmarklets?</h2>
-        <p>Bookmarklets are small JavaScript programs stored as a URL in a browser's bookmark. When clicked, they execute the JavaScript code on the currently open web page, allowing you to perform various actions, modify content, or extract information without installing extensions.</p>
+        <h2 class="text-3xl font-bold mt-8 border-b-2 border-gray-200 pb-2">📚 What are Bookmarklets?</h2>
+        <p class="mt-4 text-gray-700">Bookmarklets are small JavaScript programs stored as a URL in a browser's bookmark. When clicked, they execute the JavaScript code on the currently open web page, allowing you to perform various actions, modify content, or extract information without installing extensions.</p>
 
-        <h2>🚀 How to Use Bookmarklets</h2>
-        <div class="install-instructions">
-            <h4>Installation Methods:</h4>
-            <ol>
-                <li><strong>Method 1 - Manual Creation:</strong>
-                    <ul>
+        <h2 class="text-3xl font-bold mt-8 border-b-2 border-gray-200 pb-2">🚀 How to Use Bookmarklets</h2>
+        <div class="bg-yellow-100 border border-yellow-300 rounded-md p-4 mt-4">
+            <h4 class="font-bold text-yellow-800">Installation Methods:</h4>
+            <ol class="list-decimal list-inside mt-2">
+                <li class="mt-2"><strong>Method 1 - Manual Creation:</strong>
+                    <ul class="list-disc list-inside ml-4">
                         <li>Create a new bookmark in your browser (right-click bookmarks bar → "Add page" or "Add bookmark")</li>
                         <li>Give it a descriptive name (e.g., "Facebook Video Downloader")</li>
                         <li>In the "URL" or "Address" field, paste the entire JavaScript code for the bookmarklet</li>
-                        <li>Make sure the code starts with <code>javascript:</code></li>
+                        <li>Make sure the code starts with <code class="bg-gray-200 p-1 rounded text-sm">javascript:</code></li>
                         <li>Save the bookmark</li>
                     </ul>
                 </li>
-                <li><strong>Method 2 - Drag and Drop:</strong>
-                    <ul>
+                <li class="mt-2"><strong>Method 2 - Drag and Drop:</strong>
+                    <ul class="list-disc list-inside ml-4">
                         <li>Simply drag the bookmarklet link directly to your browser's bookmarks bar</li>
                         <li>The bookmark will be created automatically</li>
                     </ul>
                 </li>
             </ol>
-            <h4>Using the Bookmarklet:</h4>
-            <ol>
+            <h4 class="font-bold text-yellow-800 mt-4">Using the Bookmarklet:</h4>
+            <ol class="list-decimal list-inside mt-2">
                 <li>Navigate to the webpage where you want to use the bookmarklet</li>
                 <li>Click on the bookmarklet in your bookmarks bar or menu</li>
                 <li>The JavaScript code will execute on the current page</li>
             </ol>
         </div>
 
-        <div class="mobile-note">
-            <strong>📱 Mobile Users:</strong> For mobile browsers, you'll need to search for the bookmarklet's name in the URL bar to access it. <a href="https://paul.kinlan.me/use-bookmarklets-on-chrome-on-android/" target="_blank">Learn more about using bookmarklets on mobile</a>.
+        <div class="bg-blue-100 border border-blue-300 rounded-md p-4 mt-4 text-blue-800">
+            <strong>📱 Mobile Users:</strong> For mobile browsers, you'll need to search for the bookmarklet's name in the URL bar to access it. <a href="https://paul.kinlan.me/use-bookmarklets-on-chrome-on-android/" target="_blank" class="underline">Learn more about using bookmarklets on mobile</a>.
         </div>
 
-        <div class="toc">
-            <h3>📖 Table of Contents</h3>
-            <ul>
-                <li><a href="#productivity">📈 Productivity & Utilities</a></li>
-                <li><a href="#developer">👨‍💻 Developer Tools</a></li>
-                <li><a href="#fun">🎨 Fun & Customization</a></li>
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-4">
+            <h3 class="text-xl font-bold">📖 Table of Contents</h3>
+            <ul class="list-disc list-inside mt-2">
+                <li><a href="#productivity" class="text-blue-600 hover:underline">📈 Productivity & Utilities</a></li>
+                <li><a href="#developer" class="text-blue-600 hover:underline">👨‍💻 Developer Tools</a></li>
+                <li><a href="#fun" class="text-blue-600 hover:underline">🎨 Fun & Customization</a></li>
             </ul>
         </div>
 
-        <h2 id="productivity"><span class="category-icon">📈</span>Productivity & Utilities</h2>
-        <p>Bookmarklets to help you be more efficient and perform common tasks.</p>
+        <h2 id="productivity" class="text-3xl font-bold mt-8 border-b-2 border-gray-200 pb-2"><span class="mr-2">📈</span>Productivity & Utilities</h2>
+        <p class="mt-4 text-gray-700">Bookmarklets to help you be more efficient and perform common tasks.</p>
 
-        <div class="bookmarklet-item">
-            <div class="bookmarklet-title">Facebook Video Downloader</div>
-            <div class="bookmarklet-description">
+        <div class="bg-gray-100 border border-gray-200 rounded-lg p-6 my-4">
+            <div class="text-lg font-semibold text-blue-600 mb-2">Facebook Video Downloader</div>
+            <div class="text-gray-600 mb-4">
                 Download videos from Facebook by displaying available video URLs in different qualities. 
                 Shows resolution, duration, and file size for each option.
             </div>
-            <img src="https://raw.githubusercontent.com/minanagehsalalma/BookMarkletsWiki/refs/heads/main/Source/FacebookDownloader/image.png" alt="Facebook Video Downloader Screenshot" class="showcase-image">
-            <div class="bookmarklet-actions">
-                <a href="javascript:void%20function(){javascript:(async()=%3E{const%20a=(a,b=document)=%3E[...b.querySelectorAll(a)],b=(a,b,c)=%3E{!a||a.startsWith(%22blob:%22)||c.has(a)||c.set(a,{u:a,...b})},c=a=%3EisFinite(a)%3Fnew%20Date(1e3*a).toISOString().substr(11,8):%22%20%3F%22,d=a=%3Ea%3F(a/1048576).toFixed(2)+%22%20MB%22:%22%20%3F%22;{const%20a=location.href.match(/[%3F%26]v=(\d{5,})/);a%26%26/facebook\.com\/watch/.test(location.href)%26%26history.replaceState(null,%22%22,`https://www.facebook.com/story.php%3Fstory_fbid=${a[1]}%26id=${a[1]}`)}const%20e=[...new%20Map([...(()=%3E{const%20c=new%20Map;return%20a(%22video%22).forEach(d=%3E{const%20e={w:d.videoWidth,h:d.videoHeight,d:d.duration};b(d.currentSrc||d.src,e,c),a(%22source%22,d).forEach(a=%3Eb(a.src,e,c))}),a(%22meta[property=\%22og:video\%22],%20meta[property=\%22og:video:secure_url\%22]%22).forEach(a=%3Eb(a.content,{},c)),a(%22[data-store]%22).forEach(a=%3E{let%20d=a.getAttribute(%22data-store%22);if(d)try{d=JSON.parse(d.replace(/%26quot;/g,%22\%22%22).replace(/%26amp;/g,%22%26%22)),[%22src%22,%22hd_src%22,%22sd_src%22].forEach(a=%3Eb(d[a],{},c))}catch{}}),[...c.values()]})(),...(()=%3E{const%20b=new%20Set,c=/%22(%3F:playable_url_quality_hd|playable_url|hd_src(%3F:_no_ratelimit)%3F|sd_src(%3F:_no_ratelimit)%3F)%22\s*:\s*%22([^%22]+%3F\.mp4[^%22]*%3F)%22/g;return%20a(%22script%22).forEach(a=%3E{for(let%20d;d=c.exec(a.textContent);)b.add(d[1].replace(/\\\//g,%22/%22).replace(/\\u0025/gi,%22%25%22).replace(/\\u0026/gi,%22%26%22))}),[...b].map(a=%3E({u:a}))})()].map(a=%3E[a.u,a])).values()];if(!e.length)return%20void%20alert(%22No%20video%20found.\n\u2022%20Click%20the%20play%20button%20once,%20then%20run%20the%20bookmarklet%20again.%22);await%20Promise.all(e.map(async%20a=%3E{try{a.sz=+(await%20fetch(a.u,{method:%22HEAD%22})).headers.get(%22content-length%22)||0}catch{a.sz=0}}));const%20f=document.createElement(%22div%22);f.id=%22fbDLgui%22,f.innerHTML=`%20%20%3Cstyle%3E%20%20%20%20%23fbDLgui{position:fixed;inset:0;z-index:2147483647;background:%230004;backdrop-filter:blur(2px);}%20%20%20%20%23fbDLbox{position:absolute;top:8vh;left:50%25;transform:translateX(-50%25);%20%20%20%20%20%20%20%20%20%20%20%20%20width:80%25;max-width:700px;height:80vh;background:%23fff;border-radius:10px;%20%20%20%20%20%20%20%20%20%20%20%20%20box-shadow:0%206px%2024px%20%230003;display:flex;flex-direction:column;font:14px/1.4%20sans-serif;}%20%20%20%20%23fbDLhdr{display:flex;align-items:center;justify-content:space-between;padding:10px%2016px;%20%20%20%20%20%20%20%20%20%20%20%20%20background:%234267B2;color:%23fff;border-radius:10px%2010px%200%200;}%20%20%20%20%23fbDLhdr%20h2{margin:0;font-size:15px;font-weight:600;}%20%20%20%20%23fbDLclose{border:none;background:none;color:%23fff;font-size:22px;cursor:pointer;}%20%20%20%20%23fbDLtbl{flex:1%201%20auto;margin:0%2016px%2016px;overflow:auto;border:1px%20solid%20%23ddd;}%20%20%20%20%23fbDLtbl%20table{border-collapse:collapse;width:100%25;}%20%20%20%20%23fbDLtbl%20th,%23fbDLtbl%20td{padding:6px%208px;text-align:left;border-bottom:1px%20solid%20%23eee;font-size:13px;}%20%20%20%20%23fbDLtbl%20th{background:%23f5f6fa;position:sticky;top:0;}%20%20%20%20%23fbDLtbl%20tr:hover{background:%23fafbff;}%20%20%3C/style%3E%20%20%3Cdiv%20id=%22fbDLbox%22%3E%20%20%20%20%3Cdiv%20id=%22fbDLhdr%22%3E%3Ch2%3EFacebook%26nbsp;Video%26nbsp;Downloader%3C/h2%3E%3Cbutton%20id=%22fbDLclose%22%3E×%3C/button%3E%3C/div%3E%20%20%20%20%3Cdiv%20id=%22fbDLtbl%22%3E%3Ctable%3E%20%20%20%20%20%20%3Cthead%3E%3Ctr%3E%3Cth%3EFile%3C/th%3E%3Cth%3EResolution%3C/th%3E%3Cth%3EDuration%3C/th%3E%3Cth%3ESize%3C/th%3E%3C/tr%3E%3C/thead%3E%20%20%20%20%20%20%3Ctbody%3E%3C/tbody%3E%20%20%20%20%3C/table%3E%3C/div%3E%20%20%3C/div%3E`,document.body.appendChild(f);const%20g=f.querySelector(%22tbody%22),h=a=%3E40%3Ca.length%3F`${a.slice(0,18)}…${a.slice(-18)}`:a;e.forEach(a=%3E{const%20b=h(decodeURIComponent(a.u.split(%22/%22).pop().split(%22%3F%22)[0])||%22(unnamed)%22),e=a.w%3F`${a.w}×${a.h}`:%22%20%3F%22,f=document.createElement(%22tr%22);f.innerHTML=`%3Ctd%3E%3Ca%20href=%22${a.u}%22%20target=%22_blank%22%20download%3E${b}%3C/a%3E%3C/td%3E%20%20%20%20%20%20%20%3Ctd%3E${e}%3C/td%3E%20%20%20%20%20%20%20%3Ctd%3E${c(a.d)}%3C/td%3E%20%20%20%20%20%20%20%3Ctd%3E${d(a.sz)}%3C/td%3E`,g.appendChild(f)}),f.querySelector(%22%23fbDLclose%22).onclick=()=%3Ef.remove()})()}();" class="bookmarklet-link">Facebook Video Downloader</a>
-                <a href="https://github.com/minanagehsalalma/BookMarkletsWiki/tree/main/Source/FacebookDownloader" target="_blank" class="view-code-link">📝 View Code on GitHub</a>
+            <img src="https://raw.githubusercontent.com/minanagehsalalma/BookMarkletsWiki/refs/heads/main/Source/FacebookDownloader/image.png" alt="Facebook Video Downloader Screenshot" class="max-w-full h-auto rounded-lg shadow-md my-4">
+            <div class="flex flex-wrap items-center gap-2">
+                <a href="javascript:void%20function(){javascript:(async()=%3E{const%20a=(a,b=document)=%3E[...b.querySelectorAll(a)],b=(a,b,c)=%3E{!a||a.startsWith(%22blob:%22)||c.has(a)||c.set(a,{u:a,...b})},c=a=%3EisFinite(a)%3Fnew%20Date(1e3*a).toISOString().substr(11,8):%22%20%3F%22,d=a=%3Ea%3F(a/1048576).toFixed(2)+%22%20MB%22:%22%20%3F%22;{const%20a=location.href.match(/[%3F%26]v=(\d{5,})/);a%26%26/facebook\.com\/watch/.test(location.href)%26%26history.replaceState(null,%22%22,`https://www.facebook.com/story.php%3Fstory_fbid=${a[1]}%26id=${a[1]}`)}const%20e=[...new%20Map([...(()=%3E{const%20c=new%20Map;return%20a(%22video%22).forEach(d=%3E{const%20e={w:d.videoWidth,h:d.videoHeight,d:d.duration};b(d.currentSrc||d.src,e,c),a(%22source%22,d).forEach(a=%3Eb(a.src,e,c))}),a(%22meta[property=\%22og:video\%22],%20meta[property=\%22og:video:secure_url\%22]%22).forEach(a=%3Eb(a.content,{},c)),a(%22[data-store]%22).forEach(a=%3E{let%20d=a.getAttribute(%22data-store%22);if(d)try{d=JSON.parse(d.replace(/%26quot;/g,%22\%22%22).replace(/%26amp;/g,%22%26%22)),[%22src%22,%22hd_src%22,%22sd_src%22].forEach(a=%3Eb(d[a],{},c))}catch{}}),[...c.values()]})(),...(()=%3E{const%20b=new%20Set,c=/%22(%3F:playable_url_quality_hd|playable_url|hd_src(%3F:_no_ratelimit)%3F|sd_src(%3F:_no_ratelimit)%3F)%22\s*:\s*%22([^%22]+%3F\.mp4[^%22]*%3F)%22/g;return%20a(%22script%22).forEach(a=%3E{for(let%20d;d=c.exec(a.textContent);)b.add(d[1].replace(/\\\//g,%22/%22).replace(/\\u0025/gi,%22%25%22).replace(/\\u0026/gi,%22%26%22))}),[...b].map(a=%3E({u:a}))})()].map(a=%3E[a.u,a])).values()];if(!e.length)return%20void%20alert(%22No%20video%20found.\n\u2022%20Click%20the%20play%20button%20once,%20then%20run%20the%20bookmarklet%20again.%22);await%20Promise.all(e.map(async%20a=%3E{try{a.sz=+(await%20fetch(a.u,{method:%22HEAD%22})).headers.get(%22content-length%22)||0}catch{a.sz=0}}));const%20f=document.createElement(%22div%22);f.id=%22fbDLgui%22,f.innerHTML=`%20%20%3Cstyle%3E%20%20%20%20%23fbDLgui{position:fixed;inset:0;z-index:2147483647;background:%230004;backdrop-filter:blur(2px);}%20%20%20%20%23fbDLbox{position:absolute;top:8vh;left:50%25;transform:translateX(-50%25);%20%20%20%20%20%20%20%20%20%20%20%20%20width:80%25;max-width:700px;height:80vh;background:%23fff;border-radius:10px;%20%20%20%20%20%20%20%20%20%20%20%20%20box-shadow:0%206px%2024px%20%230003;display:flex;flex-direction:column;font:14px/1.4%20sans-serif;}%20%20%20%20%23fbDLhdr{display:flex;align-items:center;justify-content:space-between;padding:10px%2016px;%20%20%20%20%20%20%20%20%20%20%20%20%20background:%234267B2;color:%23fff;border-radius:10px%2010px%200%200;}%20%20%20%20%23fbDLhdr%20h2{margin:0;font-size:15px;font-weight:600;}%20%20%20%20%23fbDLclose{border:none;background:none;color:%23fff;font-size:22px;cursor:pointer;}%20%20%20%20%23fbDLtbl{flex:1%201%20auto;margin:0%2016px%2016px;overflow:auto;border:1px%20solid%20%23ddd;}%20%20%20%20%23fbDLtbl%20table{border-collapse:collapse;width:100%25;}%20%20%20%20%23fbDLtbl%20th,%23fbDLtbl%20td{padding:6px%208px;text-align:left;border-bottom:1px%20solid%20%23eee;font-size:13px;}%20%20%20%20%23fbDLtbl%20th{background:%23f5f6fa;position:sticky;top:0;}%20%20%20%20%23fbDLtbl%20tr:hover{background:%23fafbff;}%20%20%3C/style%3E%20%20%3Cdiv%20id=%22fbDLbox%22%3E%20%20%20%20%3Cdiv%20id=%22fbDLhdr%22%3E%3Ch2%3EFacebook%26nbsp;Video%26nbsp;Downloader%3C/h2%3E%3Cbutton%20id=%22fbDLclose%22%3E×%3C/button%3E%3C/div%3E%20%20%20%20%3Cdiv%20id=%22fbDLtbl%22%3E%3Ctable%3E%20%20%20%20%20%20%3Cthead%3E%3Ctr%3E%3Cth%3EFile%3C/th%3E%3Cth%3EResolution%3C/th%3E%3Cth%3EDuration%3C/th%3E%3Cth%3ESize%3C/th%3E%3C/tr%3E%3C/thead%3E%20%20%20%20%20%20%3Ctbody%3E%3C/tbody%3E%20%20%20%20%3C/table%3E%3C/div%3E%20%20%3C/div%3E`,document.body.appendChild(f);const%20g=f.querySelector(%22tbody%22),h=a=%3E40%3Ca.length%3F`${a.slice(0,18)}…${a.slice(-18)}`:a;e.forEach(a=%3E{const%20b=h(decodeURIComponent(a.u.split(%22/%22).pop().split(%22%3F%22)[0])||%22(unnamed)%22),e=a.w%3F`${a.w}×${a.h}`:%22%20%3F%22,f=document.createElement(%22tr%22);f.innerHTML=`%3Ctd%3E%3Ca%20href=%22${a.u}%22%20target=%22_blank%22%20download%3E${b}%3C/a%3E%3C/td%3E%20%20%20%20%20%20%20%3Ctd%3E${e}%3C/td%3E%20%20%20%20%20%20%20%3Ctd%3E${c(a.d)}%3C/td%3E%20%20%20%20%20%20%20%3Ctd%3E${d(a.sz)}%3C/td%3E`,g.appendChild(f)}),f.querySelector(%22%23fbDLclose%22).onclick=()=%3Ef.remove()})()}();" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-md font-medium hover:bg-blue-700 transition-colors">Facebook Video Downloader</a>
+                <a href="https://github.com/minanagehsalalma/BookMarkletsWiki/tree/main/Source/FacebookDownloader" target="_blank" class="inline-block bg-green-500 text-white px-4 py-2 rounded-md font-medium hover:bg-green-600 transition-colors">📝 View Code on GitHub</a>
             </div>
-            <div class="warning">
+            <div class="bg-red-100 border border-red-300 rounded-md p-4 mt-4 text-red-800">
                 <strong>Note:</strong> If no video is found, click the play button on the video first, then run the bookmarklet again.
             </div>
         </div>
 
-        <div class="bookmarklet-item">
-            <div class="bookmarklet-title">Custom Youtube Video Player + Downloader by @snarly </div>
-            <div class="bookmarklet-description">
+        <div class="bg-gray-100 border border-gray-200 rounded-lg p-6 my-4">
+            <div class="text-lg font-semibold text-blue-600 mb-2">Custom Youtube Video Player + Downloader by @snarly </div>
+            <div class="text-gray-600 mb-4">
             Allows full control of YT vids and downloading them and a lot more 
             </div>
-            <div class="bookmarklet-actions">
-            <img src="https://raw.githubusercontent.com/minanagehsalalma/BookMarkletsWiki/refs/heads/main/Source/other/image.png" alt="YT Custom" class="showcase-image">
-                <a href="https://snarly.github.io/yt6/" class="bookmarklet-link">Click To Get it from source</a>
-                <a href="https://github.com/snarly/yt6" target="_blank" class="view-code-link">📝 View Code on GitHub</a>
+            <img src="https://raw.githubusercontent.com/minanagehsalalma/BookMarkletsWiki/refs/heads/main/Source/other/image.png" alt="YT Custom" class="max-w-full h-auto rounded-lg shadow-md my-4">
+            <div class="flex flex-wrap items-center gap-2">
+                <a href="https://snarly.github.io/yt6/" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-md font-medium hover:bg-blue-700 transition-colors">Click To Get it from source</a>
+                <a href="https://github.com/snarly/yt6" target="_blank" class="inline-block bg-green-500 text-white px-4 py-2 rounded-md font-medium hover:bg-green-600 transition-colors">📝 View Code on GitHub</a>
             </div>
         </div>
 
-        <div class="bookmarklet-item">
-            <div class="bookmarklet-title">Facebook Comments Expander</div>
-            <div class="bookmarklet-description">
+        <div class="bg-gray-100 border border-gray-200 rounded-lg p-6 my-4">
+            <div class="text-lg font-semibold text-blue-600 mb-2">Facebook Comments Expander</div>
+            <div class="text-gray-600 mb-4">
                 Automatically expands all "view more comments" and "show replies" sections on Facebook posts. 
                 Continues expanding until all comments are visible.
             </div>
-            <div class="bookmarklet-actions">
-                <a href="javascript:(function(){const a=/\b(view|see|load|show)\b/i,b=/\b(reply|replies|comment|comments)\b/i,c=()=>{let c=0;return document.querySelectorAll('a, div[role=\'button\'], span[role=\'button\'], span[role=\'link\']').forEach(d=>{const e=(d.innerText||'').trim();if(a.test(e)&&b.test(e)){d.click();c++;}}),c&&console.debug(`[FB-Expander] clicked ${c}`),c},d=3e3;let e=Date.now();const f=new MutationObserver(()=>{e=Date.now()});f.observe(document,{childList:!0,subtree:!0});const g=setInterval(()=>{if(c()){e=Date.now()}if(Date.now()-e>d){clearInterval(g);f.disconnect();console.log(`[FB-Expander] ✅ Done – settled for ${d/1e3}s.`)}},400);console.log('[FB-Expander] 🚀 Started…');c()})();" class="bookmarklet-link">Facebook Comments Expander</a>
-                <a href="https://github.com/minanagehsalalma/BookMarkletsWiki/tree/main/Source/FBCommentsExpander" target="_blank" class="view-code-link">📝 View Code on GitHub</a>
+            <div class="flex flex-wrap items-center gap-2">
+                <a href="javascript:(function(){const a=/\b(view|see|load|show)\b/i,b=/\b(reply|replies|comment|comments)\b/i,c=()=>{let c=0;return document.querySelectorAll('a, div[role=\'button\'], span[role=\'button\'], span[role=\'link\']').forEach(d=>{const e=(d.innerText||'').trim();if(a.test(e)&&b.test(e)){d.click();c++;}}),c&&console.debug(`[FB-Expander] clicked ${c}`),c},d=3e3;let e=Date.now();const f=new MutationObserver(()=>{e=Date.now()});f.observe(document,{childList:!0,subtree:!0});const g=setInterval(()=>{if(c()){e=Date.now()}if(Date.now()-e>d){clearInterval(g);f.disconnect();console.log(`[FB-Expander] ✅ Done – settled for ${d/1e3}s.`)}},400);console.log('[FB-Expander] 🚀 Started…');c()})();" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-md font-medium hover:bg-blue-700 transition-colors">Facebook Comments Expander</a>
+                <a href="https://github.com/minanagehsalalma/BookMarkletsWiki/tree/main/Source/FBCommentsExpander" target="_blank" class="inline-block bg-green-500 text-white px-4 py-2 rounded-md font-medium hover:bg-green-600 transition-colors">📝 View Code on GitHub</a>
             </div>
-            <div class="warning">
+            <div class="bg-red-100 border border-red-300 rounded-md p-4 mt-4 text-red-800">
                 <strong>Tip:</strong> Check the browser console (F12) to see the expansion progress.
             </div>
         </div>
 
-        <div class="bookmarklet-item">
-            <div class="bookmarklet-title">PayWall Remover</div>
-            <div class="bookmarklet-description">
+        <div class="bg-gray-100 border border-gray-200 rounded-lg p-6 my-4">
+            <div class="text-lg font-semibold text-blue-600 mb-2">PayWall Remover</div>
+            <div class="text-gray-600 mb-4">
             Removes any PayWall from websites using multiple sources from removepaywall.com
             </div>
-            <img src="https://raw.githubusercontent.com/minanagehsalalma/BookMarkletsWiki/refs/heads/main/Source/NoPayWall/image.png" alt="PayWall Remover" class="showcase-image">
-            <div class="bookmarklet-actions">
-                <a href="javascript:(function(){location.href='https://removepaywall.com/search?url=%27+encodeURIComponent(location.href);})();" class="bookmarklet-link">NoPayWall</a>
-                <a href="https://github.com/minanagehsalalma/BookMarkletsWiki/blob/main/Source/NoPayWall/" target="_blank" class="view-code-link">📝 View Code on GitHub</a>
+            <img src="https://raw.githubusercontent.com/minanagehsalalma/BookMarkletsWiki/refs/heads/main/Source/NoPayWall/image.png" alt="PayWall Remover" class="max-w-full h-auto rounded-lg shadow-md my-4">
+            <div class="flex flex-wrap items-center gap-2">
+                <a href="javascript:(function(){location.href='https://removepaywall.com/search?url=%27+encodeURIComponent(location.href);})();" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-md font-medium hover:bg-blue-700 transition-colors">NoPayWall</a>
+                <a href="https://github.com/minanagehsalalma/BookMarkletsWiki/blob/main/Source/NoPayWall/" target="_blank" class="inline-block bg-green-500 text-white px-4 py-2 rounded-md font-medium hover:bg-green-600 transition-colors">📝 View Code on GitHub</a>
             </div>
         </div>
 
-        <div class="bookmarklet-item">
-            <div class="bookmarklet-title">Medium PayWall Remover</div>
-            <div class="bookmarklet-description">
+        <div class="bg-gray-100 border border-gray-200 rounded-lg p-6 my-4">
+            <div class="text-lg font-semibold text-blue-600 mb-2">Medium PayWall Remover</div>
+            <div class="text-gray-600 mb-4">
             Bypasses Members only medium articles by using freedium.cfd.
             </div>
-            <img src="https://raw.githubusercontent.com/minanagehsalalma/BookMarkletsWiki/refs/heads/main/Source/MediumPaywallRemove/medium.png" alt="Medium PayWall Remover" class="showcase-image">
-            <div class="bookmarklet-actions">
-                <a href="javascript:(function(){location.href='https://freedium.cfd/'+encodeURIComponent(location.href);})();" class="bookmarklet-link">Freedium</a>
-                <a href="https://github.com/minanagehsalalma/BookMarkletsWiki/tree/main/Source/MediumPaywallRemove/" target="_blank" class="view-code-link">📝 View Code on GitHub</a>
+            <img src="https://raw.githubusercontent.com/minanagehsalalma/BookMarkletsWiki/refs/heads/main/Source/MediumPaywallRemove/medium.png" alt="Medium PayWall Remover" class="max-w-full h-auto rounded-lg shadow-md my-4">
+            <div class="flex flex-wrap items-center gap-2">
+                <a href="javascript:(function(){location.href='https://freedium.cfd/'+encodeURIComponent(location.href);})();" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-md font-medium hover:bg-blue-700 transition-colors">Freedium</a>
+                <a href="https://github.com/minanagehsalalma/BookMarkletsWiki/tree/main/Source/MediumPaywallRemove/" target="_blank" class="inline-block bg-green-500 text-white px-4 py-2 rounded-md font-medium hover:bg-green-600 transition-colors">📝 View Code on GitHub</a>
             </div>
         </div>
 
-        <h2 id="developer"><span class="category-icon">👨‍💻</span>Developer Tools</h2>
-        <p>Bookmarklets useful for web developers, designers, and anyone inspecting web pages.</p>
+        <h2 id="developer" class="text-3xl font-bold mt-8 border-b-2 border-gray-200 pb-2"><span class="mr-2">👨‍💻</span>Developer Tools</h2>
+        <p class="mt-4 text-gray-700">Bookmarklets useful for web developers, designers, and anyone inspecting web pages.</p>
 
-        <div class="bookmarklet-item">
-            <div class="bookmarklet-title">Neat Local Storage Exporter</div>
-            <div class="bookmarklet-description">
+        <div class="bg-gray-100 border border-gray-200 rounded-lg p-6 my-4">
+            <div class="text-lg font-semibold text-blue-600 mb-2">Neat Local Storage Exporter</div>
+            <div class="text-gray-600 mb-4">
 Exports local storage of a selected domain without the need of manual copying each key. Supports Importing the exported keys too.
             </div>
-            <img src="https://raw.githubusercontent.com/minanagehsalalma/Neat-Local-Storage-Exporter/refs/heads/main/55.png" alt="Facebook Video Downloader Screenshot" class="showcase-image">
-            <div class="bookmarklet-actions">
+            <img src="https://raw.githubusercontent.com/minanagehsalalma/Neat-Local-Storage-Exporter/refs/heads/main/55.png" alt="Facebook Video Downloader Screenshot" class="max-w-full h-auto rounded-lg shadow-md my-4">
+            <div class="flex flex-wrap items-center gap-2">
                 <a href="javascript:void%20function(){const%20a=document.createElement(%22div%22);a.style.cssText=`
 %20%20position:%20fixed;%20top:%2020px;%20right:%2020px;%20z-index:%2099999;
 %20%20background:%20%231a1a1a;%20color:%20%23fff;%20padding:%2020px;%20border-radius:%2010px;
@@ -328,30 +160,30 @@ Exports local storage of a selected domain without the need of manual copying ea
 `,i.addEventListener(%22click%22,()=%3E{confirm(%22Are%20you%20sure%3F%20This%20will%20delete%20ALL%20localStorage%20data%20on%20this%20domain!%22)%26%26(localStorage.clear(),i.textContent=%22\u2713%20Cleared!%22,setTimeout(()=%3E{i.textContent=%22Clear%20All%20localStorage%20(Danger!)%22},2e3))}),a.appendChild(i);const%20j=document.createElement(%22button%22);j.textContent=%22\xD7%22,j.style.cssText=`
 %20%20position:%20absolute;%20top:%2010px;%20right:%2015px;%20background:%20none;%20border:%20none;
 %20%20color:%20%23fff;%20font-size:%2024px;%20cursor:%20pointer;%20width:%2030px;%20height:%2030px;
-`,j.addEventListener(%22click%22,()=%3E{document.body.removeChild(a)}),a.appendChild(j),document.body.appendChild(a)}();" class="bookmarklet-link">Neat Local Storage Exporter</a>
-                <a href="https://github.com/minanagehsalalma/Neat-Local-Storage-Exporter/blob/main/copy_localstorage.js" target="_blank" class="view-code-link">📝 View Code on GitHub</a>
+`,j.addEventListener(%22click%22,()=%3E{document.body.removeChild(a)}),a.appendChild(j),document.body.appendChild(a)}();" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-md font-medium hover:bg-blue-700 transition-colors">Neat Local Storage Exporter</a>
+                <a href="https://github.com/minanagehsalalma/Neat-Local-Storage-Exporter/blob/main/copy_localstorage.js" target="_blank" class="inline-block bg-green-500 text-white px-4 py-2 rounded-md font-medium hover:bg-green-600 transition-colors">📝 View Code on GitHub</a>
             </div>
-            <div class="warning">
+            <div class="bg-red-100 border border-red-300 rounded-md p-4 mt-4 text-red-800">
                 <strong>Tip:</strong> To select another local storage within the same domain you select it from the browser's focus.
-            <img src="https://raw.githubusercontent.com/minanagehsalalma/Neat-Local-Storage-Exporter/refs/heads/main/image.png" alt="Facebook Video Downloader Screenshot" class="showcase-image">
+            <img src="https://raw.githubusercontent.com/minanagehsalalma/Neat-Local-Storage-Exporter/refs/heads/main/image.png" alt="Facebook Video Downloader Screenshot" class="max-w-full h-auto rounded-lg shadow-md my-4">
             </div>
         </div>
 
-        <h2 id="fun"><span class="category-icon">🎨</span>Fun & Customization</h2>
-        <p>Bookmarklets for entertainment and personalizing your browsing experience.</p>
+        <h2 id="fun" class="text-3xl font-bold mt-8 border-b-2 border-gray-200 pb-2"><span class="mr-2">🎨</span>Fun & Customization</h2>
+        <p class="mt-4 text-gray-700">Bookmarklets for entertainment and personalizing your browsing experience.</p>
 
-        <div class="bookmarklet-item">
-            <div class="bookmarklet-title">Coming Soon</div>
-            <div class="bookmarklet-description">
+        <div class="bg-gray-100 border border-gray-200 rounded-lg p-6 my-4">
+            <div class="text-lg font-semibold text-blue-600 mb-2">Coming Soon</div>
+            <div class="text-gray-600 mb-4">
                 Fun customization bookmarklets will be added here. Consider contributing your favorites!
             </div>
         </div>
 
-        <h2>🤝 Contributing</h2>
-        <p>Have a favorite bookmarklet to share? Contributions are welcome! Simply submit a pull request with your bookmarklet added to the appropriate category.</p>
+        <h2 class="text-3xl font-bold mt-8 border-b-2 border-gray-200 pb-2">🤝 Contributing</h2>
+        <p class="mt-4 text-gray-700">Have a favorite bookmarklet to share? Contributions are welcome! Simply submit a pull request with your bookmarklet added to the appropriate category.</p>
 
-        <h2>📄 License</h2>
-        <p>This project is licensed under the MIT License.</p>
+        <h2 class="text-3xl font-bold mt-8 border-b-2 border-gray-200 pb-2">📄 License</h2>
+        <p class="mt-4 text-gray-700">This project is licensed under the MIT License.</p>
     </div>
 </body>
 </html>
