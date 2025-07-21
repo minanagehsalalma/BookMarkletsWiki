@@ -1,6 +1,8 @@
 import json
 from jinja2 import Environment, FileSystemLoader
 import os
+import urllib.parse
+
 
 # --- Configuration ---
 DATA_FILE = 'data/bookmarklets.json'
@@ -28,11 +30,19 @@ def main():
                 # Read the raw JS from the source file
                 with open(bm['source_file'].lstrip('/'), 'r') as f:
                     js_code = f.read().strip()
+
+                # Escape the JS code for use in a bookmarklet
+                js_code = urllib.parse.quote(js_code, safe='')
+
                 # Create the javascript: URL
                 bm['bookmarklet_url'] = f"javascript:{js_code}"
             else:
                 # Fallback for bookmarklets without a source file
                 bm['bookmarklet_url'] = "#"
+
+            # Ensure the image path is absolute
+            if bm.get('image'):
+                bm['image'] = urllib.parse.urljoin(REPO_URL_RAW, bm['image'].lstrip('/'))
 
     # 3. Prepare context for templates
     context = {

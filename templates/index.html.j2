@@ -70,7 +70,7 @@
                     <img src="{{ bookmarklet.image }}" alt="{{ bookmarklet.name }} Screenshot" class="max-w-full h-auto rounded-lg shadow-md my-4">
                     {% endif %}
                     <div class="flex flex-wrap items-center gap-2">
-                        <a href="{{ bookmarklet.bookmarklet_url }}" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-md font-medium hover:bg-blue-700 transition-colors">{{ bookmarklet.button_text }}</a>
+                        <a href="{{ bookmarklet.bookmarklet_url }}" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-md font-medium hover:bg-blue-700 transition-colors">{{ bookmarklet.button_text | default(bookmarklet.name) }}</a>
                         <a href="{{ bookmarklet.github_url }}" target="_blank" class="inline-block bg-green-500 text-white px-4 py-2 rounded-md font-medium hover:bg-green-600 transition-colors">📝 View Code on GitHub</a>
                     </div>
                     {% if bookmarklet.note %}

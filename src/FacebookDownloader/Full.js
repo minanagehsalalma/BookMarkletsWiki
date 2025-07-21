@@ -1,4 +1,4 @@
-javascript:(async () => {
+(async () => {
   /* ─ helpers ─ */
   const $ = (q, c = document) => [...c.querySelectorAll(q)];
   const add = (url, meta, map) => {

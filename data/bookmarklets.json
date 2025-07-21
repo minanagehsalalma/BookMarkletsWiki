@@ -21,7 +21,7 @@
           "name": "Facebook Video Downloader",
           "description": "Download videos from Facebook with different quality options, resolution, and file size information.",
           "image": "/src/FacebookDownloader/image.png",
-          "source_file": "/src/FacebookDownloader/Full.js",
+          "source_file": "/src/FacebookDownloader/minified.js",
           "github_url": "https://github.com/minanagehsalalma/BookMarkletsWiki/tree/main/src/FacebookDownloader",
           "note": "If no video is found, click the play button on the video first, then run the bookmarklet again."
         },
