@@ -12,6 +12,9 @@
   "categories": [
     {
       "name": "Productivity & Utilities",
+      "description": "Bookmarklets to help you be more efficient and perform common tasks.",
+      "id": "productivity",
+      "icon": "📈",
       "bookmarklets": [
         {
           "id": "facebook-video-downloader",
@@ -58,6 +61,9 @@
     },
     {
       "name": "Developer Tools",
+      "description": "Bookmarklets useful for web developers, designers, and anyone inspecting web pages.",
+      "id": "developer",
+      "icon": "💻",
       "bookmarklets": [
         {
           "id": "local-storage-exporter",

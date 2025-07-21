@@ -1,0 +1,4 @@
+[flake8]
+
+# Set max line length
+max-line-length = 100
