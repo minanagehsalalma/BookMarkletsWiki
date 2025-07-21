@@ -8,7 +8,7 @@ import urllib.parse
 DATA_FILE = 'data/bookmarklets.json'
 TEMPLATE_DIR = 'templates'
 OUTPUT_DIR = '.'
-REPO_URL_RAW = 'https://raw.githubusercontent.com/minanagehsalalma/BookMarkletsWiki/main'
+REPO_URL_RAW = 'https://raw.githubusercontent.com/minanagehsalalma/BookMarkletsWiki/refs/heads/main'
 
 
 # --- Main Build Logic ---
@@ -47,14 +47,13 @@ def main():
     # 3. Prepare context for templates
     context = {
         'metadata': data['metadata'],
-        'categories': data['categories'],
-        'repo_url_raw': REPO_URL_RAW
+        'categories': data['categories']
     }
 
     # 4. Render and save the HTML file
     template_html = env.get_template('index.html.j2')
     output_html = template_html.render(context)
-    with open(os.path.join(OUTPUT_DIR, 'index_test.html'), 'w') as f:
+    with open(os.path.join(OUTPUT_DIR, 'index.html'), 'w') as f:
         f.write(output_html)
     print("✅ index.html built successfully!")
 
