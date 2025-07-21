@@ -72,6 +72,14 @@
           "image": "https://raw.githubusercontent.com/minanagehsalalma/Neat-Local-Storage-Exporter/refs/heads/main/55.png",
           "source_file": "",
           "github_url": "https://github.com/minanagehsalalma/Neat-Local-Storage-Exporter"
+        },
+        {
+          "id": "testing-automation",
+          "name": "Testing Automation",
+          "description": "A bookmarklet to automate testing tasks in web applications.",
+          "image": "https://raw.githubusercontent.com/minanagehsalalma/Neat-Local-Storage-Exporter/refs/heads/main/55.png",
+          "source_file": "",
+          "github_url": "https://github.com/minanagehsalalma/Neat-Local-Storage-Exporter"
         }
       ]
     }
