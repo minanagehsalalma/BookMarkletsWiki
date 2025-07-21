@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "name": "Bookmarklets Wiki",
+    "version": "1.0.0",
+    "description": "A curated collection of useful and fun bookmarklets to enhance your Browse experience.",
+    "author": "Mina Nageh",
+    "repository": "https://github.com/minanagehsalalma/BookMarkletsWiki",
+    "homepage": "https://minanagehsalalma.github.io/BookMarkletsWiki/",
+    "license": "MIT",
+    "lastUpdated": "2025-07-21"
+  },
+  "categories": [
+    {
+      "name": "Productivity & Utilities",
+      "bookmarklets": [
+        {
+          "id": "facebook-video-downloader",
+          "name": "Facebook Video Downloader",
+          "description": "Download videos from Facebook with different quality options, resolution, and file size information.",
+          "image": "/src/FacebookDownloader/image.png",
+          "source_file": "/src/FacebookDownloader/Full.js",
+          "github_url": "https://github.com/minanagehsalalma/BookMarkletsWiki/tree/main/src/FacebookDownloader",
+          "note": "If no video is found, click the play button on the video first, then run the bookmarklet again."
+        },
+        {
+          "id": "youtube-downloader",
+          "name": "Custom YouTube Video Player + Downloader",
+          "description": "Allows full control of YouTube videos, including downloading and more.",
+          "image": "/src/other/image.png",
+          "source_file": "",
+          "github_url": "https://github.com/snarly/yt6"
+        },
+        {
+          "id": "facebook-comments-expander",
+          "name": "Facebook Comments Expander",
+          "description": "Expands all 'view more comments' and 'show replies' on Facebook posts. Great for searching in comments (Ctrl + F).",
+          "image": "",
+          "source_file": "/src/FBCommentsExpander/minified.js",
+          "github_url": "https://github.com/minanagehsalalma/BookMarkletsWiki/tree/main/src/FBCommentsExpander"
+        },
+        {
+          "id": "paywall-remover",
+          "name": "PayWall Remover",
+          "description": "Removes paywalls from websites using multiple sources from removepaywall.com.",
+          "image": "/src/NoPayWall/image.png",
+          "source_file": "/src/NoPayWall/removepaywallBookmarklet.js",
+          "github_url": "https://github.com/minanagehsalalma/BookMarkletsWiki/tree/main/src/NoPayWall"
+        },
+        {
+          "id": "medium-paywall-remover",
+          "name": "Medium PayWall Remover",
+          "description": "Bypasses 'Members only' articles on Medium by using freedium.cfd.",
+          "image": "/src/MediumPaywallRemove/medium.png",
+          "source_file": "/src/MediumPaywallRemove/freediumBookmarklet.js",
+          "github_url": "https://github.com/minanagehsalalma/BookMarkletsWiki/tree/main/src/MediumPaywallRemove"
+        }
+      ]
+    },
+    {
+      "name": "Developer Tools",
+      "bookmarklets": [
+        {
+          "id": "local-storage-exporter",
+          "name": "Neat Local Storage Exporter",
+          "description": "Exports and imports localStorage of a selected domain without manual copying.",
+          "image": "https://raw.githubusercontent.com/minanagehsalalma/Neat-Local-Storage-Exporter/refs/heads/main/55.png",
+          "source_file": "",
+          "github_url": "https://github.com/minanagehsalalma/Neat-Local-Storage-Exporter"
+        }
+      ]
+    }
+  ]
+}
