@@ -53,7 +53,7 @@
           "id": "medium-paywall-remover",
           "name": "Medium PayWall Remover",
           "description": "Bypasses 'Members only' articles on Medium by using freedium.cfd.",
-          "image": "/src/MediumPaywallRemove/medium.png",
+          "image": "/src/MediumPaywallRemove/image.png",
           "source_file": "/src/MediumPaywallRemove/freediumBookmarklet.js",
           "github_url": "https://github.com/minanagehsalalma/BookMarkletsWiki/tree/main/src/MediumPaywallRemove"
         }

@@ -8,7 +8,7 @@ import urllib.parse
 DATA_FILE = 'data/bookmarklets.json'
 TEMPLATE_DIR = 'templates'
 OUTPUT_DIR = '.'
-REPO_URL_RAW = 'https://raw.githubusercontent.com/minanagehsalalma/BookMarkletsWiki/refs/heads/main'
+REPO_URL_RAW = 'https://raw.githubusercontent.com/minanagehsalalma/BookMarkletsWiki/main/'
 
 
 # --- Main Build Logic ---
@@ -43,6 +43,7 @@ def main():
             # Ensure the image path is absolute
             if bm.get('image'):
                 bm['image'] = urllib.parse.urljoin(REPO_URL_RAW, bm['image'].lstrip('/'))
+                print(bm['image'])
 
     # 3. Prepare context for templates
     context = {
