@@ -77,7 +77,7 @@
           "id": "Toggle-Password-Visibility",
           "name": "Toggle Password Visibility",
           "description": "Shows or hides all password fields on the page with each click. for sites that don't have the option.",
-          "image": "https://raw.githubusercontent.com/minanagehsalalma/BookMarkletsWiki/refs/heads/main/src/TogglePasswordVisibility/chrome_9RJPSvfq8K.gif",
+          "image": "/src/TogglePasswordVisibility/chrome_9RJPSvfq8K.gif",
           "source_file": "https://github.com/minanagehsalalma/BookMarkletsWiki/blob/main/src/TogglePasswordVisibility/TPasswordVisibility.js",
           "github_url": "https://github.com/minanagehsalalma/BookMarkletsWiki/tree/main/src/TogglePasswordVisibility"
         }
