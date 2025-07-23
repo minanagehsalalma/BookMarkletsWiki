@@ -1,12 +1,1 @@
-(() => {
-  const pw = document.querySelectorAll('input[type="password"], input[data-showing="true"]');
-  pw.forEach(el => {
-    if (el.type === 'password') {
-      el.dataset.showing = 'true';
-      el.type = 'text';
-    } else {
-      el.type = 'password';
-      delete el.dataset.showing;
-    }
-  });
-})();
+(function(){var p=document.querySelectorAll('input[type="password"],input[data-showing="true"]');p.forEach(function(e){if(e.type==='password'){e.dataset.showing='true';e.type='text'}else{e.type='password';delete e.dataset.showing}})})();
