@@ -1,92 +1,188 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ metadata.name }}</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com/3.4.1?plugins=typography"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+          }
+        }
+      }
+    </script>
+
+    <style>
+        @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to   { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+        animation: fadeIn 0.5s ease-out forwards;
+        }
+        
+        /* UPDATED: Scrollbar is now hidden by default and appears on hover */
+
+        /* For WebKit browsers like Chrome & Safari */
+        #nav::-webkit-scrollbar {
+        width: 8px;
+        }
+        #nav::-webkit-scrollbar-track {
+        background: transparent;
+        }
+        #nav::-webkit-scrollbar-thumb {
+        background-color: transparent; /* Hide by default */
+        border-radius: 4px;
+        transition: background-color 0.3s ease; /* Add smooth transition */
+        }
+        #nav:hover::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.2); /* Show on hover */
+        }
+        #nav:hover::-webkit-scrollbar-thumb:hover {
+            background-color: rgba(255, 255, 255, 0.3); /* Slightly more visible on thumb hover */
+        }
+
+        /* For Firefox */
+        #nav {
+            scrollbar-width: thin;
+            scrollbar-color: transparent transparent; /* Hide by default */
+            transition: scrollbar-color 0.3s ease;
+        }
+        #nav:hover {
+            scrollbar-color: rgba(255, 255, 255, 0.2) transparent; /* Show on hover */
+        }
+    </style>
 </head>
-<body class="bg-gray-50 font-sans leading-normal p-8">
-    <div class="container bg-white p-8 rounded-lg shadow-md max-w-4xl mx-auto">
-        <h1 class="text-4xl font-bold text-blue-600 border-b-2 border-gray-200 pb-2">📚 {{ metadata.name }}</h1>
-        <p class="mt-4 text-gray-600">{{ metadata.description}}</p>
+<body class="bg-gradient-to-br from-slate-900 to-indigo-950 font-sans text-slate-300 antialiased">
 
-        <h2 class="text-3xl font-bold mt-8 border-b-2 border-gray-200 pb-2">📚 What are Bookmarklets?</h2>
-        <p class="mt-4 text-gray-700">Bookmarklets are small JavaScript programs stored as a URL in a browser's bookmark. When clicked, they execute the JavaScript code on the currently open web page, allowing you to perform various actions, modify content, or extract information without installing extensions.</p>
+<div class="fade-in flex max-w-screen-xl mx-auto p-4 md:p-8 gap-8">
+    
+    <aside id="nav" class="flex-shrink-0 w-64 bg-black/10 text-slate-200 p-6 rounded-2xl shadow-2xl mr-8 sticky top-8 self-start hidden lg:block
+                      border border-white/10 backdrop-blur-xl max-h-[calc(100vh-4rem)] overflow-y-auto">
+        <h2 class="text-2xl font-bold mb-2 text-white">Bookmarklets</h2>
+        <ul class="space-y-2">
+            <li>
+                <a href="#what-are-bookmarklets" class="flex items-center gap-3 text-slate-300 hover:text-white hover:bg-white/10 transition-colors rounded-md -mx-2 px-2 py-1.5">
+                    <span class="text-lg">-</span>
+                    <span>What are Bookmarklets</span>
+                </a>
+            </li>
+            <li>
+                <a href="#how-to-use" class="flex items-center gap-3 text-slate-300 hover:text-white hover:bg-white/10 transition-colors rounded-md -mx-2 px-2 py-1.5">
+                    <span class="text-lg">-</span>
+                    <span>How to Use</span>
+                </a>
+            </li>
+            
+            {% for category in categories %}
+            <li>
+                <a href="#{{ category.id }}" class="flex items-center gap-3 text-slate-300 hover:text-white hover:bg-white/10 transition-colors rounded-md -mx-2 px-2 py-1.5">
+                    <span class="text-lg">-</span>
+                    <span>{{ category.name }}</span>
+                </a>
+                <ul class="mt-2 space-y-1 pl-4">
+                    {% for bookmarklet in category.bookmarklets %}
+                    <li>
+                        <a href="#{{ bookmarklet.id }}" class="text-slate-400 hover:text-white hover:bg-white/10 transition-colors rounded-md -mx-2 px-2 py-1.5 block">
+                            <span class="text-sm">{{ bookmarklet.name }}</span>
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+    </aside>
 
-        <h2 class="text-3xl font-bold mt-8 border-b-2 border-gray-200 pb-2">🚀 How to Use Bookmarklets</h2>
-        <div class="bg-yellow-100 border border-yellow-300 rounded-md p-4 mt-4">
-            <h4 class="font-bold text-yellow-800">Installation Methods:</h4>
-            <ol class="list-decimal list-inside mt-2">
-                <li class="mt-2"><strong>Method 1 - Manual Creation:</strong>
-                    <ul class="list-disc list-inside ml-4">
-                        <li>Create a new bookmark in your browser (right-click bookmarks bar → "Add page" or "Add bookmark")</li>
-                        <li>Give it a descriptive name (e.g., "Facebook Video Downloader")</li>
-                        <li>In the "URL" or "Address" field, paste the entire JavaScript code for the bookmarklet</li>
-                        <li>Make sure the code starts with <code class="bg-gray-200 p-1 rounded text-sm">javascript:</code></li>
-                        <li>Save the bookmark</li>
-                    </ul>
-                </li>
-                <li class="mt-2"><strong>Method 2 - Drag and Drop:</strong>
-                    <ul class="list-disc list-inside ml-4">
-                        <li>Simply drag the bookmarklet link directly to your browser's bookmarks bar</li>
-                        <li>The bookmark will be created automatically</li>
-                    </ul>
-                </li>
-            </ol>
-            <h4 class="font-bold text-yellow-800 mt-4">Using the Bookmarklet:</h4>
-            <ol class="list-decimal list-inside mt-2">
-                <li>Navigate to the webpage where you want to use the bookmarklet</li>
-                <li>Click on the bookmarklet in your bookmarks bar or menu</li>
-                <li>The JavaScript code will execute on the current page</li>
-            </ol>
-        </div>
+    <main class="w-full bg-black/10 p-8 md:p-12 rounded-2xl shadow-2xl prose prose-invert max-w-none lg:prose-lg
+                 border border-white/10 backdrop-blur-xl">
+        
+        <h1>{{ metadata.name }}</h1>
+        <p>{{ metadata.description}}</p>
 
-        <div class="bg-blue-100 border border-blue-300 rounded-md p-4 mt-4 text-blue-800">
-            <strong>📱 Mobile Users:</strong> For mobile browsers, you'll need to search for the bookmarklet's name in the URL bar to access it. <a href="https://paul.kinlan.me/use-bookmarklets-on-chrome-on-android/" target="_blank" class="underline">Learn more about using bookmarklets on mobile</a>.
-        </div>
+        <h2 id="what-are-bookmarklets">What are Bookmarklets?</h2>
+        <p>Bookmarklets are small JavaScript programs stored as a URL in a browser's bookmark. When clicked, they execute the JavaScript code on the currently open web page, allowing you to perform various actions, modify content, or extract information without installing extensions.</p>
 
-        <!-- Table of Contents -->
-        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-4">
-            <h3 class="text-xl font-bold">📖 Table of Contents</h3>
-            <ul class="list-disc list-inside mt-2">
-                {% for category in categories %}
-                <li><a href="#{{ category.id }}" class="text-blue-600 hover:underline">{{ category.icon }} {{ category.name }}</a></li>
-                {% endfor %}
-            </ul>
+        <h2 id="how-to-use">How to Use Bookmarklets</h2>
+        <div class="not-prose">
+            <div class="bg-amber-500/10 border-l-4 border-amber-400 text-amber-200 p-4 mt-6 rounded-r-lg">
+                <h4 class="font-bold">Installation Methods:</h4>
+                <ol class="list-decimal list-inside mt-2 space-y-2 text-sm md:text-base">
+                    <li><strong>Manual Creation:</strong>
+                        <ul class="list-disc list-inside ml-4 mt-1 text-slate-300">
+                            <li>Create a new bookmark in your browser.</li>
+                            <li>Give it a name (e.g., "Facebook Video Downloader").</li>
+                            <li>Paste the JavaScript code into the "URL" field.</li>
+                            <li>Ensure it starts with <code class="bg-slate-700 text-slate-200 font-mono text-xs rounded px-1.5 py-0.5">javascript:</code> and save.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Drag and Drop:</strong>
+                        <ul class="list-disc list-inside ml-4 mt-1 text-slate-300">
+                            <li>Simply drag the bookmarklet link to your bookmarks bar.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <h4 class="font-bold mt-4">Using the Bookmarklet:</h4>
+                <ol class="list-decimal list-inside mt-2 space-y-1 text-sm md:text-base">
+                    <li>Navigate to the target webpage.</li>
+                    <li>Click the bookmarklet in your bookmarks bar.</li>
+                </ol>
+            </div>
+            
+            <div class="bg-sky-400/10 border-l-4 border-sky-400 text-sky-200 p-4 mt-4 rounded-r-lg text-sm md:text-base">
+                <strong>📱 Mobile Users:</strong> On mobile, you typically save the bookmarklet, then type its name into the address bar and tap it to run. <a href="https://paul.kinlan.me/use-bookmarklets-on-chrome-on-android/" target="_blank" class="font-medium hover:underline text-sky-300 hover:text-sky-200">Learn more here</a>.
+            </div>
         </div>
         
         {% for category in categories %}
-            <h2 id="{{ category.id }}" class="text-3xl font-bold mt-8 border-b-2 border-gray-200 pb-2">
-                <span class="mr-2">{{ category.icon }}</span>{{ category.name }}
+            <h2 id="{{ category.id }}">
+                {{ category.name }}
             </h2>
-            <p class="mt-4 text-gray-700">{{ category.description }}</p>
+            <p>{{ category.description }}</p>
         
-            {% for bookmarklet in category.bookmarklets %}
-                <div class="bg-gray-100 border border-gray-200 rounded-lg p-6 my-4">
-                    <div class="text-lg font-semibold text-blue-600 mb-2">{{ bookmarklet.name }}</div>
-                    <div class="text-gray-600 mb-4">{{ bookmarklet.description }}</div>
-                    {% if bookmarklet.image %}
-                    <img src="{{ bookmarklet.image }}" alt="{{ bookmarklet.name }} Screenshot" class="max-w-full h-auto rounded-lg shadow-md my-4">
-                    {% endif %}
-                    <div class="flex flex-wrap items-center gap-2">
-                        <a href="{{ bookmarklet.bookmarklet_url }}" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-md font-medium hover:bg-blue-700 transition-colors">{{ bookmarklet.button_text | default(bookmarklet.name) }}</a>
-                        <a href="{{ bookmarklet.github_url }}" target="_blank" class="inline-block bg-green-500 text-white px-4 py-2 rounded-md font-medium hover:bg-green-600 transition-colors">📝 View Code on GitHub</a>
+            <div class="not-prose space-y-6">
+                {% for bookmarklet in category.bookmarklets %}
+                    <div id="{{bookmarklet.id}}" class="bg-slate-500/5 border border-white/10 rounded-xl p-6 transition-all duration-300 hover:bg-white/10 hover:border-indigo-400/50 hover:-translate-y-1">
+                        <div class="font-bold text-lg text-indigo-300 mb-1">{{ bookmarklet.name }}</div>
+                        <div class="text-slate-400 mb-4">{{ bookmarklet.description }}</div>
+                        
+                        {% if bookmarklet.image %}
+                        <img src="{{ bookmarklet.image }}" alt="{{ bookmarklet.name }} Screenshot" class="max-w-full h-auto rounded-lg shadow-md my-4 border border-white/10">
+                        {% endif %}
+                        
+                        <div class="flex flex-wrap items-center gap-3">
+                             <a href="{{ bookmarklet.bookmarklet_url }}" class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg font-semibold text-sm hover:bg-indigo-500 transition-all duration-300 shadow-lg shadow-indigo-950/50 transform hover:-translate-y-px">Drag to Bookmarks</a>
+                            <a href="{{ bookmarklet.github_url }}" target="_blank" class="inline-block bg-white/5 text-slate-300 px-4 py-2 rounded-lg font-semibold text-sm hover:bg-white/10 transition-colors border border-white/10">View Code</a>
+                        </div>
+                        
+                        {% if bookmarklet.note %}
+                        <div class="bg-red-500/10 border border-red-500/20 rounded-lg p-3 mt-4 text-red-300 text-sm">
+                            <strong>Note:</strong> {{ bookmarklet.note }}
+                        </div>
+                        {% endif %}
                     </div>
-                    {% if bookmarklet.note %}
-                    <div class="bg-red-100 border border-red-300 rounded-md p-4 mt-4 text-red-800">
-                        <strong>Note:</strong> {{ bookmarklet.note }}
-                    </div>
-                    {% endif %}
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         {% endfor %}
 
-        <h2 class="text-3xl font-bold mt-8 border-b-2 border-gray-200 pb-2">🤝 Contributing</h2>
-        <p class="mt-4 text-gray-700">Have a favorite bookmarklet to share? Contributions are welcome! Simply submit a pull request with your bookmarklet added to the appropriate category.</p>
+        <h2>Contributing</h2>
+        <p>Have a favorite bookmarklet to share? Contributions are welcome! Simply submit a pull request with your bookmarklet added to the appropriate category.</p>
 
-        <h2 class="text-3xl font-bold mt-8 border-b-2 border-gray-200 pb-2">📄 License</h2>
-        <p class="mt-4 text-gray-700">This project is licensed under the {{ metadata.license }} License.</p>
-    </div>
+        <h2>License</h2>
+        <p>This project is licensed under the {{ metadata.license }} License.</p>
+    </main>
+</div>
 </body>
 </html>

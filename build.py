@@ -61,7 +61,7 @@ def main():
     # 5. Render and save the README file
     template_readme = env.get_template('README.md.j2')
     output_readme = template_readme.render(context)
-    with open(os.path.join(OUTPUT_DIR, 'README_test.md'), 'w') as f:
+    with open(os.path.join(OUTPUT_DIR, 'README.md'), 'w') as f:
         f.write(output_readme)
     print("✅ README.md built successfully!")
 
