@@ -154,7 +154,7 @@
         
             <div class="not-prose space-y-6">
                 {% for bookmarklet in category.bookmarklets %}
-                    <div id="{{bookmarklet.id}}" class="bg-slate-500/5 border border-white/10 rounded-xl p-6 transition-all duration-300 hover:bg-white/10 hover:border-indigo-400/50 hover:-translate-y-1">
+                    <div id="{{ bookmarklet.id }}" class="relative bg-slate-500/5 border border-white/10 rounded-xl p-6 transition-all duration-300 hover:bg-white/10 hover:border-indigo-400/50 hover:-translate-y-1">
                         <div class="font-bold text-lg text-indigo-300 mb-1">{{ bookmarklet.name }}</div>
                         <div class="text-slate-400 mb-4">{{ bookmarklet.description }}</div>
                         
@@ -162,22 +162,20 @@
                         <img src="{{ bookmarklet.image }}" alt="{{ bookmarklet.name }} Screenshot" class="max-w-full h-auto rounded-lg shadow-md my-4 border border-white/10">
                         {% endif %}
                         
-                        <div class="flex flex-wrap items-center gap-3">
-                             <a href="{% if bookmarklet.source_file %}{{bookmarklet.bookmarklet_url}}{% else %}{{bookmarklet.github_url}}{% endif %}" class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg font-semibold text-sm hover:bg-indigo-500 transition-all duration-300 shadow-lg shadow-indigo-950/50 transform hover:-translate-y-px"
-                             {% if not bookmarklet.source_file %}
-                             target="_blank" 
-                             {% endif %}
-                             >
-                             {% if bookmarklet.source_file %}
-                                 {{ bookmarklet.name }}
-                             {% else %}
-                                Click to Get it from Source
-                             {% endif %}
-                             </a>
-                             {% if bookmarklet.source_file %}
-                            <a href="{{ bookmarklet.github_url }}" target="_blank" class="inline-block bg-white/5 text-slate-300 px-4 py-2 rounded-lg font-semibold text-sm hover:bg-white/10 transition-colors border border-white/10">View Code</a>
+                    <div class="absolute top-4 left-4 flex gap-3 z-10 bg-black/30 backdrop-blur-md rounded-lg p-1.5">
+                      <a href="{% if bookmarklet.source_file %}{{ bookmarklet.bookmarklet_url }}{% else %}{{ bookmarklet.github_url }}{% endif %}" class="inline-block bg-indigo-600 text-white px-3 py-1.5 rounded-md text-xs font-semibold hover:bg-indigo-500 transition-all duration-300 shadow shadow-indigo-950/40" {% if not bookmarklet.source_file %}target="_blank"{% endif %}>
+                        {% if bookmarklet.source_file %}
+                          {{ bookmarklet.name }}
+                            {% else %}
+                              Source
                             {% endif %}
-                        </div>
+                              </a>
+                      {% if bookmarklet.source_file %}
+                    <a href="{{ bookmarklet.github_url }}" target="_blank" class="inline-block bg-white/10 text-slate-200 px-3 py-1.5 rounded-md text-xs font-semibold hover:bg-white/20 transition-colors border border-white/10">
+                          View&nbsp;Code
+                            </a>
+                          {% endif %}
+                            </div>
                         
                         {% if bookmarklet.note %}
                         <div class="bg-red-500/10 border border-red-500/20 rounded-lg p-3 mt-4 text-red-300 text-sm">
