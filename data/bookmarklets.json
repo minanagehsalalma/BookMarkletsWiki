@@ -39,7 +39,8 @@
           "description": "Expands all 'view more comments' and 'show replies' on Facebook posts. Great for searching in comments (Ctrl + F).",
           "image": "",
           "source_file": "/src/FBCommentsExpander/minified.js",
-          "github_url": "https://github.com/minanagehsalalma/BookMarkletsWiki/tree/main/src/FBCommentsExpander"
+          "github_url": "https://github.com/minanagehsalalma/BookMarkletsWiki/tree/main/src/FBCommentsExpander",
+          "note": "Check the browser console (F12) to see the expansion progress."
         },
         {
           "id": "paywall-remover",
@@ -71,7 +72,8 @@
           "description": "Exports and imports localStorage of a selected domain without manual copying.",
           "image": "https://raw.githubusercontent.com/minanagehsalalma/Neat-Local-Storage-Exporter/refs/heads/main/55.png",
           "source_file": "",
-          "github_url": "https://github.com/minanagehsalalma/Neat-Local-Storage-Exporter"
+          "github_url": "https://github.com/minanagehsalalma/Neat-Local-Storage-Exporter",
+          "note": "To select another local storage within the same domain you select it from the browser's focus.<img src='https://raw.githubusercontent.com/minanagehsalalma/Neat-Local-Storage-Exporter/refs/heads/main/image.png' alt='Neat Local Storage Exporter' width='300' />"
         },
         {
           "id": "Toggle-Password-Visibility",
