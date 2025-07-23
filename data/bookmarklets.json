@@ -71,7 +71,7 @@
           "name": "Neat Local Storage Exporter",
           "description": "Exports and imports localStorage of a selected domain without manual copying.",
           "image": "https://raw.githubusercontent.com/minanagehsalalma/Neat-Local-Storage-Exporter/refs/heads/main/55.png",
-          "source_file": "",
+          "source_file": "https://github.com/minanagehsalalma/Neat-Local-Storage-Exporter/blob/main/copy_localstorage.js",
           "github_url": "https://github.com/minanagehsalalma/Neat-Local-Storage-Exporter",
           "note": "To select another local storage within the same domain you select it from the browser's focus.<img src='https://raw.githubusercontent.com/minanagehsalalma/Neat-Local-Storage-Exporter/refs/heads/main/image.png' alt='Neat Local Storage Exporter' width='300' />"
         },
