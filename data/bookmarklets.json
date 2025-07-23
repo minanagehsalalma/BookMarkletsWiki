@@ -31,7 +31,8 @@
           "description": "Allows full control of YouTube videos, including downloading and more.",
           "image": "/src/other/image.png",
           "source_file": "",
-          "github_url": "https://github.com/snarly/yt6"
+          "github_url": "https://snarly.github.io/yt6/",
+          "note": "you can drag and drop it from there"
         },
         {
           "id": "facebook-comments-expander",
