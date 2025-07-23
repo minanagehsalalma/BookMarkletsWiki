@@ -122,12 +122,12 @@
                     </div>
                 </div>
                 <div class="bg-gray-100 border border-gray-200 rounded-lg p-6 my-4">
-                    <div class="text-lg font-semibold text-blue-600 mb-2">Testing Automation</div>
-                    <div class="text-gray-600 mb-4">A bookmarklet to automate testing tasks in web applications.</div>
-                    <img src="https://raw.githubusercontent.com/minanagehsalalma/Neat-Local-Storage-Exporter/refs/heads/main/55.png" alt="Testing Automation Screenshot" class="max-w-full h-auto rounded-lg shadow-md my-4">
+                    <div class="text-lg font-semibold text-blue-600 mb-2">Toggle Password Visibility</div>
+                    <div class="text-gray-600 mb-4">Shows or hides all password fields on the page with each click. for sites that don't have the option.</div>
+                    <img src="https://raw.githubusercontent.com/minanagehsalalma/BookMarkletsWiki/main/src/TogglePasswordVisibility/chrome_9RJPSvfq8K.gif" alt="Toggle Password Visibility Screenshot" class="max-w-full h-auto rounded-lg shadow-md my-4">
                     <div class="flex flex-wrap items-center gap-2">
-                        <a href="#" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-md font-medium hover:bg-blue-700 transition-colors">Testing Automation</a>
-                        <a href="https://github.com/minanagehsalalma/Neat-Local-Storage-Exporter" target="_blank" class="inline-block bg-green-500 text-white px-4 py-2 rounded-md font-medium hover:bg-green-600 transition-colors">📝 View Code on GitHub</a>
+                        <a href="javascript:%28function%28%29%7Bvar%20p%3Ddocument.querySelectorAll%28%27input%5Btype%3D%22password%22%5D%2Cinput%5Bdata-showing%3D%22true%22%5D%27%29%3Bp.forEach%28function%28e%29%7Bif%28e.type%3D%3D%3D%27password%27%29%7Be.dataset.showing%3D%27true%27%3Be.type%3D%27text%27%7Delse%7Be.type%3D%27password%27%3Bdelete%20e.dataset.showing%7D%7D%29%7D%29%28%29%3B" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-md font-medium hover:bg-blue-700 transition-colors">Toggle Password Visibility</a>
+                        <a href="https://github.com/minanagehsalalma/BookMarkletsWiki/tree/main/src/TogglePasswordVisibility" target="_blank" class="inline-block bg-green-500 text-white px-4 py-2 rounded-md font-medium hover:bg-green-600 transition-colors">📝 View Code on GitHub</a>
                     </div>
                 </div>
 
