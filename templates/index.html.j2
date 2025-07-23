@@ -7,7 +7,7 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.tailwindcss.com/3.4.1?plugins=typography"></script>
-
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -163,8 +163,20 @@
                         {% endif %}
                         
                         <div class="flex flex-wrap items-center gap-3">
-                             <a href="{{ bookmarklet.bookmarklet_url }}" class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg font-semibold text-sm hover:bg-indigo-500 transition-all duration-300 shadow-lg shadow-indigo-950/50 transform hover:-translate-y-px">Drag to Bookmarks</a>
+                             <a href="{% if bookmarklet.source_file %}{{bookmarklet.bookmarklet_url}}{% else %}{{bookmarklet.github_url}}{% endif %}" class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg font-semibold text-sm hover:bg-indigo-500 transition-all duration-300 shadow-lg shadow-indigo-950/50 transform hover:-translate-y-px"
+                             {% if not bookmarklet.source_file %}
+                             target="_blank" 
+                             {% endif %}
+                             >
+                             {% if bookmarklet.source_file %}
+                                 Drag to Bookmarks
+                             {% else %}
+                                Click to Get it from Source
+                             {% endif %}
+                             </a>
+                             {% if bookmarklet.source_file %}
                             <a href="{{ bookmarklet.github_url }}" target="_blank" class="inline-block bg-white/5 text-slate-300 px-4 py-2 rounded-lg font-semibold text-sm hover:bg-white/10 transition-colors border border-white/10">View Code</a>
+                            {% endif %}
                         </div>
                         
                         {% if bookmarklet.note %}
