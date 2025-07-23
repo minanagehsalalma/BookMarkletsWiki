@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Bookmarklets Wiki",
     "version": "1.0.0",
-    "description": "A curated collection of useful and fun bookmarklets to enhance your browser experience.",
+    "description": "A curated collection of useful and fun bookmarklets to enhance your Browse experience.",
     "author": "Mina Nageh",
     "repository": "https://github.com/minanagehsalalma/BookMarkletsWiki",
     "homepage": "https://minanagehsalalma.github.io/BookMarkletsWiki/",
@@ -30,20 +30,20 @@
           "name": "Custom YouTube Video Player + Downloader",
           "description": "Allows full control of YouTube videos, including downloading and more.",
           "image": "/src/other/image.png",
-          "source_file": null,
+          "source_file": "",
           "github_url": "https://github.com/snarly/yt6"
         },
         {
           "id": "facebook-comments-expander",
           "name": "Facebook Comments Expander",
           "description": "Expands all 'view more comments' and 'show replies' on Facebook posts. Great for searching in comments (Ctrl + F).",
-          "image": null,
+          "image": "",
           "source_file": "/src/FBCommentsExpander/minified.js",
           "github_url": "https://github.com/minanagehsalalma/BookMarkletsWiki/tree/main/src/FBCommentsExpander"
         },
         {
           "id": "paywall-remover",
-          "name": "Paywall Remover",
+          "name": "PayWall Remover",
           "description": "Removes paywalls from websites using multiple sources from removepaywall.com.",
           "image": "/src/NoPayWall/image.png",
           "source_file": "/src/NoPayWall/removepaywallBookmarklet.js",
@@ -51,7 +51,7 @@
         },
         {
           "id": "medium-paywall-remover",
-          "name": "Medium Paywall Remover",
+          "name": "Medium PayWall Remover",
           "description": "Bypasses 'Members only' articles on Medium by using freedium.cfd.",
           "image": "/src/MediumPaywallRemove/image.png",
           "source_file": "/src/MediumPaywallRemove/freediumBookmarklet.js",
@@ -69,16 +69,16 @@
           "id": "local-storage-exporter",
           "name": "Neat Local Storage Exporter",
           "description": "Exports and imports localStorage of a selected domain without manual copying.",
-          "image": "https://raw.githubusercontent.com/minanagehsalalma/Neat-Local-Storage-Exporter/main/55.png",
-          "source_file": null,
+          "image": "https://raw.githubusercontent.com/minanagehsalalma/Neat-Local-Storage-Exporter/refs/heads/main/55.png",
+          "source_file": "",
           "github_url": "https://github.com/minanagehsalalma/Neat-Local-Storage-Exporter"
         },
         {
-          "id": "toggle-password-visibility",
+          "id": "Toggle-Password-Visibility",
           "name": "Toggle Password Visibility",
-          "description": "Shows or hides all password fields on the page with each click, for sites that don't have the option.",
-          "image": "https://raw.githubusercontent.com/minanagehsalalma/BookMarkletsWiki/main/src/TogglePasswordVisibility/chrome_9RJPSvfq8K.gif",
-          "source_file": "https://raw.githubusercontent.com/minanagehsalalma/BookMarkletsWiki/main/src/TogglePasswordVisibility/TPasswordVisibility.js",
+          "description": "Shows or hides all password fields on the page with each click. for sites that don't have the option.",
+          "image": "https://raw.githubusercontent.com/minanagehsalalma/BookMarkletsWiki/refs/heads/main/src/TogglePasswordVisibility/chrome_9RJPSvfq8K.gif",
+          "source_file": "https://github.com/minanagehsalalma/BookMarkletsWiki/blob/main/src/TogglePasswordVisibility/TPasswordVisibility.js",
           "github_url": "https://github.com/minanagehsalalma/BookMarkletsWiki/tree/main/src/TogglePasswordVisibility"
         }
       ]
