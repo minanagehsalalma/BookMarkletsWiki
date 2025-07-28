@@ -1,5 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+<!-- Hidden page‑view ping (no visible counter) -->
+<script>
+  (()=>{
+    const key = location.pathname.replace(/\/$/, '') || '/';
+    const WEBAPP = 'https://script.google.com/macros/s/AKfycbwUzIOAcNR3PD9-NdOg-Ni-N3dcZEKNFBXV_f3Q4bEVSD9m13ZaLsvBy9VefVCnQOIGBg/exec';
+    // fire‐and‐forget; ignore the JSON response
+    fetch(WEBAPP + '?key=' + encodeURIComponent(key), {mode:'cors'})
+      .catch(()=>{/* silent */});
+  })();
+</script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f65726a952f5404f95c3dd044873152c"}'></script><!-- End Cloudflare Web Analytics -->
 <head>
     <meta charset="UTF-8">
