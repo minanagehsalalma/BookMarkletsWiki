@@ -1,53 +1,40 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <script>
-!function(){
-  const EXEC='https://script.google.com/macros/s/AKfycbwC-_W7t-hghRH49cI188oDnIVuBbrRcCvE5FsZDma2tOGdPIsRj1FobbFQajGz2EsUIA/exec';
-  const key=(location.pathname.replace(/\/$/,'')||'/');
+(async () => {
+  const EXEC = 'https://script.google.com/macros/s/AKfycbwC-_W7t-hghRH49cI188oDnIVuBbrRcCvE5FsZDma2tOGdPIsRj1FobbFQajGz2EsUIA/exec';
+  const key  = location.pathname.replace(/\/$/, '') || '/';
 
-  // short hit id to correlate base + geo rows
-  const hid = Math.random().toString(36).slice(2,10);
+  const p = new URLSearchParams({ key });
+  p.set('tz', Intl.DateTimeFormat().resolvedOptions().timeZone || '');
+  p.set('lang', navigator.language || '');
+  p.set('ref', document.referrer || '');
+  p.set('title', document.title || '');
+  p.set('vw', String(window.innerWidth || 0));
+  p.set('vh', String(window.innerHeight || 0));
+  p.set('dpr', String(window.devicePixelRatio || 1));
 
-  const base = new URLSearchParams();
-  base.set('key', key);
-  base.set('hid', hid);
-  base.set('tz', Intl.DateTimeFormat().resolvedOptions().timeZone || '');
-  base.set('lang', navigator.language || '');
-  base.set('ref', document.referrer || '');
-
-  // Optional: UTM tags
-  try{
-    const u=new URL(location.href);
+  // UTM tags if present
+  try {
+    const u = new URL(location.href);
     ['utm_source','utm_medium','utm_campaign','utm_term','utm_content']
-      .forEach(k=>{ const v=u.searchParams.get(k); if(v) base.set(k,v); });
-  }catch(_){}
+      .forEach(k => { const v = u.searchParams.get(k); if (v) p.set(k, v); });
+  } catch {}
 
-  const send = (params) => {
-    const body = params.toString();
-    if (navigator.sendBeacon) navigator.sendBeacon(EXEC, body);
-    else fetch(EXEC, {method:'POST', mode:'no-cors',
-                      headers:{'Content-Type':'application/x-www-form-urlencoded'},
-                      body}).catch(()=>{});
-  };
+  // Country/region/city (no sampling). If it fails, still send.
+  try {
+    const g = await fetch('https://get.geojs.io/v1/ip/geo.json', { cache: 'no-store' }).then(r => r.json());
+    if (g) {
+      p.set('country', g.country || '');
+      p.set('region',  g.region  || '');
+      p.set('city',    g.city    || '');
+    }
+  } catch {}
 
-  // 1) send counts + basics right away (quiet POST)
-  addEventListener('load', ()=> {
-    setTimeout(()=> send(base), 300+Math.random()*700);
-
-    // 2) fetch geo (no sampling) and send a log-only enrichment
-    fetch('https://get.geojs.io/v1/ip/geo.json')
-      .then(r=>r.json())
-      .then(g=>{
-        const p = new URLSearchParams(base);
-        p.set('logonly','1');         // IMPORTANT: do not increment again
-        p.set('country', g.country || '');
-        p.set('region',  g.region  || '');
-        p.set('city',    g.city    || '');
-        send(p);
-      })
-      .catch(()=>{/* skip if geo fails */});
-  });
-}();
+  // One normal GET to your Apps Script
+  const url = `${EXEC}?${p.toString()}&_=${Date.now()}`; // cache-buster
+  fetch(url, { mode: 'cors' }).catch(() => {});
+})();
 </script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f65726a952f5404f95c3dd044873152c"}'></script><!-- End Cloudflare Web Analytics -->
 <head>
