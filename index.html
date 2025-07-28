@@ -1,14 +1,53 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-<!-- Hidden page‑view ping (no visible counter) -->
 <script>
-  (()=>{
-    const key = location.pathname.replace(/\/$/, '') || '/';
-    const WEBAPP = 'https://script.google.com/macros/s/AKfycbwUzIOAcNR3PD9-NdOg-Ni-N3dcZEKNFBXV_f3Q4bEVSD9m13ZaLsvBy9VefVCnQOIGBg/exec';
-    // fire‐and‐forget; ignore the JSON response
-    fetch(WEBAPP + '?key=' + encodeURIComponent(key), {mode:'cors'})
-      .catch(()=>{/* silent */});
-  })();
+!function(){
+  const EXEC='https://script.google.com/macros/s/AKfycbwC-_W7t-hghRH49cI188oDnIVuBbrRcCvE5FsZDma2tOGdPIsRj1FobbFQajGz2EsUIA/exec';
+  const key=(location.pathname.replace(/\/$/,'')||'/');
+
+  // short hit id to correlate base + geo rows
+  const hid = Math.random().toString(36).slice(2,10);
+
+  const base = new URLSearchParams();
+  base.set('key', key);
+  base.set('hid', hid);
+  base.set('tz', Intl.DateTimeFormat().resolvedOptions().timeZone || '');
+  base.set('lang', navigator.language || '');
+  base.set('ref', document.referrer || '');
+
+  // Optional: UTM tags
+  try{
+    const u=new URL(location.href);
+    ['utm_source','utm_medium','utm_campaign','utm_term','utm_content']
+      .forEach(k=>{ const v=u.searchParams.get(k); if(v) base.set(k,v); });
+  }catch(_){}
+
+  const send = (params) => {
+    const body = params.toString();
+    if (navigator.sendBeacon) navigator.sendBeacon(EXEC, body);
+    else fetch(EXEC, {method:'POST', mode:'no-cors',
+                      headers:{'Content-Type':'application/x-www-form-urlencoded'},
+                      body}).catch(()=>{});
+  };
+
+  // 1) send counts + basics right away (quiet POST)
+  addEventListener('load', ()=> {
+    setTimeout(()=> send(base), 300+Math.random()*700);
+
+    // 2) fetch geo (no sampling) and send a log-only enrichment
+    fetch('https://get.geojs.io/v1/ip/geo.json')
+      .then(r=>r.json())
+      .then(g=>{
+        const p = new URLSearchParams(base);
+        p.set('logonly','1');         // IMPORTANT: do not increment again
+        p.set('country', g.country || '');
+        p.set('region',  g.region  || '');
+        p.set('city',    g.city    || '');
+        send(p);
+      })
+      .catch(()=>{/* skip if geo fails */});
+  });
+}();
 </script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f65726a952f5404f95c3dd044873152c"}'></script><!-- End Cloudflare Web Analytics -->
 <head>
