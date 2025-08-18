@@ -4,6 +4,9 @@
 
 A curated collection of useful and fun bookmarklets to enhance your Browse experience.
 
+<img src="https://github.com/user-attachments/assets/00474fe9-1e89-4ba6-b147-1929f159da84" alt="Capture" width="540" />
+
+
 ## 📖 Table of Contents
 
 - [What are Bookmarklets?](#-what-are-bookmarklets)
